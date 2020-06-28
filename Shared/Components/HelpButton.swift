@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HelpButton: View {
-
     var body: some View {
         Button(action: {}) {
             Image(systemName: "questionmark.circle")
@@ -17,12 +16,11 @@ struct HelpButton: View {
                 .padding()
         }
         .background(Circle()
-                        .fill(Color.secondary)
-                        .padding(.all, 10.0))
+            .fill(Color.secondary)
+            .padding(.all, 10.0))
         .buttonStyle(PlainButtonStyle())
     }
 }
-
 
 struct HelpButton_Previews: PreviewProvider {
     static var previews: some View {

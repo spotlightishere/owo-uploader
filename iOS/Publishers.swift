@@ -14,10 +14,10 @@ extension Publishers {
     static var keyboardHeight: AnyPublisher<CGFloat, Never> {
         let keyboardShowing = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
             .map { $0.keyboardHeight }
-        
+
         let keyboardHiding = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
             .map { _ in CGFloat(0) }
-        
+
         return MergeMany(keyboardShowing, keyboardHiding)
             .eraseToAnyPublisher()
     }
@@ -25,6 +25,6 @@ extension Publishers {
 
 extension Notification {
     var keyboardHeight: CGFloat {
-        return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
+        (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
     }
 }

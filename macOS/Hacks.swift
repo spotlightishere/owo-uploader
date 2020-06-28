@@ -12,8 +12,8 @@ import Foundation
 // As this is not natively customizable in SwiftUI, disable globally.
 // Sourced from https://stackoverflow.com/a/60290791
 extension NSTextField {
-    open override var focusRingType: NSFocusRingType {
+    override open var focusRingType: NSFocusRingType {
         get { .none }
-        set { }
+        set {}
     }
 }

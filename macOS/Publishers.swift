@@ -8,7 +8,6 @@
 import Combine
 import Foundation
 
-
 extension Publishers {
     // Under macOS, we don't have a virtual keyboard to adjust a view for.
     // As we run natively, we also do not have a UIApplication to receive content via.
