@@ -9,62 +9,102 @@ import Combine
 import SwiftUI
 
 struct LoginView: View {
-    @State private var token = ""
     @State private var keyboardHeight: CGFloat = 0
-
+    @State private var enteredToken: String = ""
+    @EnvironmentObject var loginState: LoginState
+    
+    
     var body: some View {
         let stack = VStack {
-            Spacer()
-
-            Text("OwO Uploader")
-                // TODO: Investigate accessibility
-                .font(Font.system(size: 48))
-                .fontWeight(.bold)
-
-            Text("Enter your OwO Beta account token.")
+            
+            #if os(macOS)
+            let appIcon = Image(nsImage: NSImage(imageLiteralResourceName: NSImage.applicationIconName))
+            #else
+            // If changed, please update this image asset as well!
+            let appIcon = Image("SwiftUIAccessibleAppIcon")
+            #endif
+            
+            appIcon
+                .resizable()
+                .frame(width: 142.0, height: 142.0)
+                // TODO: remove once like, literally everything else is implemented
+                .scaledToFit()
+                .cornerRadius(15.0)
+                .padding(.top, 23.0)
+            
+            Text(verbatim: "OwO Beta")
+                .font(.custom(".AppleSystemUIFontDemi", size: 36.0))
+            
+            Text("Sign in with your OwO Beta account token.")
                 .multilineTextAlignment(.center)
-                // TODO: Is 4.0 a decent padding for _all_ sides?
-                .padding(.top, 4.0)
-                .padding(.bottom, 25.0)
-
-            Spacer()
-
-            VStack {
-                HStack {
-                    Text("Token")
-                        .padding(.horizontal, 10.0)
-                        .font(.subheadline)
-                    TextField("required", text: .constant(""))
-                        .frame(height: 35.0)
-                        .textFieldStyle(PlainTextFieldStyle())
-                        .background(Color.clear)
-                        .textContentType(.username)
-                }.overlay(RoundedRectangle(cornerRadius: 3.0)
-                    .stroke(Color.secondary))
-
-                Button(action: {}) {
-                    HStack {
-                        Spacer()
-                        Text("Login")
-                        Spacer()
+                .padding(.top, 1)
+                .frame(maxWidth: 500)
+            
+            HStack {
+                Text("Account Token")
+                    .font(.footnote)
+                    .fontWeight(.bold)
+                    .padding(.trailing, 15.0)
+                
+                SecureField("Token", text: $enteredToken, onCommit: {
+                    if enteredToken != "" {
+                        loginState.login(with: enteredToken)
                     }
-                }.buttonStyle(ProminentButtonStyle())
-            }.frame(maxWidth: 300.0, maxHeight: 200.0)
-
+                })
+                .textFieldStyle(PlainTextFieldStyle())
+                .textContentType(.password)
+                .frame(idealWidth: 100.0, maxWidth: 200.0)
+                .font(.caption)
+                .disabled(loginState.isLoggingIn)
+            }.frame(minHeight: 35.0, maxHeight: 35.0)
+            // Create a border around the previous two elements.
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 0.5)
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal, -15)
+                        .padding(.vertical, -3)
+            )
+            .padding(.horizontal, 20)
+            .padding(.vertical, 25.0)
+            
+            let signIn = Button("Sign In...", action: {
+                loginState.login(with: enteredToken)
+            }).disabled(enteredToken == "" || loginState.isLoggingIn)
+            
+            
+            #if os(iOS)
+            // We'd prefer to have a larger sign in button where possible.
+            signIn.font(.title3)
+            #else
+            signIn
+            #endif
+            
+            
+            // Show spinner whilst loading
+            ZStack {
+                ProgressView()
+                    .opacity(loginState.isLoggingIn ? 1 : 0)
+                    .padding(.top, 10)
+                Text(loginState.failureReason)
+                    .foregroundColor(Color.red)
+            }
+            
             // Adjust off from bottom - 2:3rds
             Spacer()
             Spacer()
         }.padding(.bottom, keyboardHeight)
-            // Modify upon keyboard height being sent
-            .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-            .animation(.easeOut(duration: 0.15))
-            .padding(.horizontal, 15.0)
-
-        // Under macOS, we want the window to be a proper size.
+        // Modify upon keyboard height being sent
+        .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+        .animation(.easeOut(duration: 0.15))
+        .padding(.horizontal, 15.0)
+        
         #if os(macOS)
-            return stack.frame(minWidth: 700.0, maxWidth: .infinity, minHeight: 450.0, maxHeight: .infinity)
+        // Under macOS, we want the window to be a proper size.
+        // TODO: 518 is adjusted from 546. Title bar size may vary.
+        return stack.frame(width: 646.0, height: 518.0)
         #else
-            return stack
+        return stack
         #endif
     }
 }
@@ -75,7 +115,7 @@ struct LoginView_Previews: PreviewProvider {
             LoginView()
                 .preferredColorScheme(.light)
                 .previewLayout(.sizeThatFits)
-
+            
             LoginView()
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)

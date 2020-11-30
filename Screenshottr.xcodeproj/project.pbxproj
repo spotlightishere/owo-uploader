@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4214083424A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
 		4214083524A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
+		42B95C8E24AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
+		42B95C8F24AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
+		42B95C9024AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
+		42B95C9124AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
 		42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C2431D24A7C9A3006BA9EA /* Publishers.swift */; };
 		42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C2431F24A7C9AA006BA9EA /* Publishers.swift */; };
 		42C853EF24A6BCAA00DBD983 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C853EE24A6BCAA00DBD983 /* Tests_iOS.swift */; };
@@ -19,12 +23,8 @@
 		42C853FF24A6BCAA00DBD983 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C853D424A6BCA800DBD983 /* LoginView.swift */; };
 		42C8540024A6BCAA00DBD983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C853D524A6BCAA00DBD983 /* Assets.xcassets */; };
 		42C8540124A6BCAA00DBD983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C853D524A6BCAA00DBD983 /* Assets.xcassets */; };
-		42E98CE424A7EF230006D127 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E98CE324A7EF230006D127 /* HelpButton.swift */; };
-		42E98CE524A7F0490006D127 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E98CE324A7EF230006D127 /* HelpButton.swift */; };
-		42E98CEA24A80EBA0006D127 /* ProminentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E98CE924A80EBA0006D127 /* ProminentButton.swift */; };
-		42E98CEB24A80EBA0006D127 /* ProminentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E98CE924A80EBA0006D127 /* ProminentButton.swift */; };
-		42E98CEC24A80EBA0006D127 /* ProminentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E98CE924A80EBA0006D127 /* ProminentButton.swift */; };
-		42E98CED24A80EBA0006D127 /* ProminentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E98CE924A80EBA0006D127 /* ProminentButton.swift */; };
+		42D7394624AA89160020420C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7394524AA89160020420C /* MainView.swift */; };
+		42D7394724AA89160020420C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7394524AA89160020420C /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		4214083324A74C7A00C599CE /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
+		422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Screenshottr.entitlements; sourceTree = "<group>"; };
+		42AD826B24BD23DF004EE529 /* owo.swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = owo.swift; path = ../../macOS/owo.swift; sourceTree = "<group>"; };
+		42B95C8D24AADBE600464E3F /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		42C2431D24A7C9A3006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C2431F24A7C9AA006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C853D324A6BCA800DBD983 /* ScreenshottrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshottrApp.swift; sourceTree = "<group>"; };
@@ -62,8 +65,7 @@
 		42C853F524A6BCAA00DBD983 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C853F924A6BCAA00DBD983 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		42C853FB24A6BCAA00DBD983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42E98CE324A7EF230006D127 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
-		42E98CE924A80EBA0006D127 /* ProminentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProminentButton.swift; sourceTree = "<group>"; };
+		42D7394524AA89160020420C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42B95C8524AAB27000464E3F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				42B95C8D24AADBE600464E3F /* LoginState.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		42C2432124A7D63B006BA9EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				42C853D324A6BCA800DBD983 /* ScreenshottrApp.swift */,
 				42C853D424A6BCA800DBD983 /* LoginView.swift */,
+				42D7394524AA89160020420C /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +121,7 @@
 		42C853CD24A6BCA800DBD983 = {
 			isa = PBXGroup;
 			children = (
+				42AD826B24BD23DF004EE529 /* owo.swift */,
 				42C853D224A6BCA800DBD983 /* Shared */,
 				42C853DC24A6BCAA00DBD983 /* iOS */,
 				42C853E324A6BCAA00DBD983 /* macOS */,
@@ -123,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				42E98CE624A7F05C0006D127 /* Components */,
+				42B95C8524AAB27000464E3F /* Helpers */,
 				42C2432124A7D63B006BA9EA /* Views */,
 				42C853D524A6BCAA00DBD983 /* Assets.xcassets */,
 			);
@@ -143,6 +156,7 @@
 		42C853DC24A6BCAA00DBD983 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */,
 				42C853DD24A6BCAA00DBD983 /* Info.plist */,
 				42C2431D24A7C9A3006BA9EA /* Publishers.swift */,
 			);
@@ -181,8 +195,6 @@
 		42E98CE624A7F05C0006D127 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				42E98CE324A7EF230006D127 /* HelpButton.swift */,
-				42E98CE924A80EBA0006D127 /* ProminentButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,7 +279,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					42C853D924A6BCAA00DBD983 = {
 						CreatedOnToolsVersion = 12.0;
@@ -344,8 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E98CE424A7EF230006D127 /* HelpButton.swift in Sources */,
-				42E98CEA24A80EBA0006D127 /* ProminentButton.swift in Sources */,
+				42B95C8E24AADBE600464E3F /* LoginState.swift in Sources */,
+				42D7394624AA89160020420C /* MainView.swift in Sources */,
 				42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */,
 				42C853FE24A6BCAA00DBD983 /* LoginView.swift in Sources */,
 				42C853FC24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
@@ -357,10 +369,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4214083424A74C7A00C599CE /* Hacks.swift in Sources */,
-				42E98CE524A7F0490006D127 /* HelpButton.swift in Sources */,
+				42D7394724AA89160020420C /* MainView.swift in Sources */,
 				42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */,
+				42B95C8F24AADBE600464E3F /* LoginState.swift in Sources */,
 				42C853FF24A6BCAA00DBD983 /* LoginView.swift in Sources */,
-				42E98CEB24A80EBA0006D127 /* ProminentButton.swift in Sources */,
 				42C853FD24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E98CEC24A80EBA0006D127 /* ProminentButton.swift in Sources */,
+				42B95C9024AADBE600464E3F /* LoginState.swift in Sources */,
 				42C853EF24A6BCAA00DBD983 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,8 +390,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B95C9124AADBE600464E3F /* LoginState.swift in Sources */,
 				4214083524A74C7A00C599CE /* Hacks.swift in Sources */,
-				42E98CED24A80EBA0006D127 /* ProminentButton.swift in Sources */,
 				42C853FA24A6BCAA00DBD983 /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/Screenshottr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NP873NYDVX;
 				ENABLE_PREVIEWS = YES;
@@ -528,6 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = space.joscomputing.Screenshottr;
 				PRODUCT_NAME = Screenshottr;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -538,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/Screenshottr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NP873NYDVX;
 				ENABLE_PREVIEWS = YES;
@@ -550,6 +565,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = space.joscomputing.Screenshottr;
 				PRODUCT_NAME = Screenshottr;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -562,6 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = NP873NYDVX;
@@ -572,7 +589,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = space.joscomputing.Screenshottr;
 				PRODUCT_NAME = Screenshottr;
 				SDKROOT = macosx;
@@ -586,6 +603,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = NP873NYDVX;
@@ -596,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = space.joscomputing.Screenshottr;
 				PRODUCT_NAME = Screenshottr;
 				SDKROOT = macosx;

@@ -9,9 +9,22 @@ import SwiftUI
 
 @main
 struct ScreenshottrApp: App {
+    private var loginState = LoginState()
+    
     var body: some Scene {
-        WindowGroup {
-            LoginView()
+        let group = WindowGroup {
+            if loginState.user == nil {
+                LoginView().environmentObject(loginState)
+            } else {
+                MainView()
+            }
         }
+        
+        #if os(macOS)
+        // We'd prefer to have the group's title bar hidden where possible.
+        return group.windowStyle(HiddenTitleBarWindowStyle())
+        #else
+        return group
+        #endif
     }
 }
