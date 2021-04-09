@@ -16,7 +16,6 @@ struct LoginView: View {
     
     var body: some View {
         let stack = VStack {
-            
             #if os(macOS)
             let appIcon = Image(nsImage: NSImage(imageLiteralResourceName: NSImage.applicationIconName))
             #else
@@ -68,31 +67,26 @@ struct LoginView: View {
             .padding(.horizontal, 20)
             .padding(.vertical, 25.0)
             
-            let signIn = Button("Sign In...", action: {
-                loginState.login(with: enteredToken)
-            }).disabled(enteredToken == "" || loginState.isLoggingIn)
             
-            
-            #if os(iOS)
-            // We'd prefer to have a larger sign in button where possible.
-            signIn.font(.title3)
-            #else
-            signIn
-            #endif
-            
-            
-            // Show spinner whilst loading
-            ZStack {
+            if (loginState.isLoggingIn) {
                 ProgressView()
                     .opacity(loginState.isLoggingIn ? 1 : 0)
-                    .padding(.top, 10)
-                Text(loginState.failureReason)
-                    .foregroundColor(Color.red)
+            } else {
+                let signIn = Button("Sign In...", action: {
+                    loginState.login(with: enteredToken)
+                }).disabled(enteredToken == "")
+                
+                
+                #if os(iOS)
+                // We'd prefer to have a larger sign in button where possible.
+                signIn.font(.title3)
+                #else
+                signIn
+                #endif
             }
             
-            // Adjust off from bottom - 2:3rds
-            Spacer()
-            Spacer()
+            Text(loginState.failureReason)
+                .foregroundColor(Color.red)
         }.padding(.bottom, keyboardHeight)
         // Modify upon keyboard height being sent
         .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
@@ -115,10 +109,12 @@ struct LoginView_Previews: PreviewProvider {
             LoginView()
                 .preferredColorScheme(.light)
                 .previewLayout(.sizeThatFits)
+                .environmentObject(LoginState())
             
             LoginView()
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
+                .environmentObject(LoginState())
         }
     }
 }

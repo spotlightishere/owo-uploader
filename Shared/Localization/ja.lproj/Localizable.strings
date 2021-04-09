@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Screenshottr
+
+  Created by Spotlight Deveaux on 2020-11-30.
+  
+*/
+
+/*
+ Login strings
+*/
+"Token" = "トークン";
+"Sign in with your OwO Beta account token. " = "OwO Betaアカウントのトークンとサインインしてください。";

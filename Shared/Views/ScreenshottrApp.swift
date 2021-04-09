@@ -11,9 +11,19 @@ import SwiftUI
 struct ScreenshottrApp: App {
     private var loginState = LoginState()
     
+    init() {
+        authenticate()
+    }
+    
+    func authenticate() {
+        loginState.loginFromKeychain()
+    }
+    
     var body: some Scene {
         let group = WindowGroup {
-            if loginState.user == nil {
+            if loginState.authState == .initialLaunch {
+                LoadingView()
+            } else if loginState.authState != .authenticated {
                 LoginView().environmentObject(loginState)
             } else {
                 MainView()
