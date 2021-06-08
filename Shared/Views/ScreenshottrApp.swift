@@ -5,11 +5,13 @@
 //  Created by Spotlight Deveaux on 6/26/20.
 //
 
+import owo_swift
 import SwiftUI
 
 @main
 struct ScreenshottrApp: App {
     private var loginState = LoginState()
+    public var globalApi: OwOSwift = OwOSwift()
     
     init() {
         authenticate()

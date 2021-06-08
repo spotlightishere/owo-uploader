@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4214083424A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
 		4214083524A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
+		425DE348266FE5B600FD79AC /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DE347266FE5B600FD79AC /* Hacks.swift */; };
 		426C086A257514F7002A2932 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0869257514F7002A2932 /* LoadingView.swift */; };
 		426C086B257514F7002A2932 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0869257514F7002A2932 /* LoadingView.swift */; };
 		426C087D257531B4002A2932 /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 426C087C257531B4002A2932 /* owo.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		4214083324A74C7A00C599CE /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
 		422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Screenshottr.entitlements; sourceTree = "<group>"; };
+		425DE347266FE5B600FD79AC /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
 		426C0869257514F7002A2932 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		426C0888257532F4002A2932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42AD826B24BD23DF004EE529 /* owo.swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = owo.swift; path = ../../macOS/owo.swift; sourceTree = "<group>"; };
@@ -180,8 +182,9 @@
 		42C853DC24A6BCAA00DBD983 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */,
 				42C853DD24A6BCAA00DBD983 /* Info.plist */,
+				422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */,
+				425DE347266FE5B600FD79AC /* Hacks.swift */,
 				42C2431D24A7C9A3006BA9EA /* Publishers.swift */,
 			);
 			path = iOS;
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425DE348266FE5B600FD79AC /* Hacks.swift in Sources */,
 				42B95C8E24AADBE600464E3F /* LoginState.swift in Sources */,
 				42D7394624AA89160020420C /* MainView.swift in Sources */,
 				42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */,

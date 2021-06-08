@@ -12,7 +12,7 @@ struct User {
     var token = ""
 }
 
-enum AuthState {
+enum AuthState: Error {
     case initialLaunch
     case noCredentials
     case invalidAuth
@@ -39,8 +39,8 @@ class LoginState: ObservableObject {
     @Published var authState: AuthState = .initialLaunch
     
     func getErrorReason(_ givenReason: OSStatus) -> String {
-        let theReserved: UnsafeMutableRawPointer? = nil
-        let cfReason = SecCopyErrorMessageString(givenReason, theReserved)
+        let reserved: UnsafeMutableRawPointer? = nil
+        let cfReason = SecCopyErrorMessageString(givenReason, reserved)
         
         if cfReason == nil {
             return "Unknown error"
@@ -54,7 +54,6 @@ class LoginState: ObservableObject {
                                     kSecAttrLabel as String: keychainItemName,
                                     kSecMatchLimit as String: kSecMatchLimitOne,
                                     kSecReturnData as String: true]
-        
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
         guard status != errSecItemNotFound else {
@@ -62,6 +61,7 @@ class LoginState: ObservableObject {
             // We ensure we do not present a failure reason.
             failureReason = ""
             authState = .noCredentials
+            
             return nil
         }
         
@@ -72,9 +72,8 @@ class LoginState: ObservableObject {
             
             return nil
         }
-        
-        guard let existingItem = item as? [String : Any],
-              let passwordData = existingItem[kSecValueData as String] as? Data
+                
+        guard let passwordData = item as? Data
         else {
             failureReason = "Unable to load data from keychain."
             authState = .invalidAuth
@@ -93,21 +92,36 @@ class LoginState: ObservableObject {
             return
         }
         
-        if authState != .authenticated || possibleToken == nil {
+        if authState != .initialLaunch || possibleToken == nil {
             print("An external error occurred retrieving keychain credentials.")
             return
         }
         
-        let token: String = possibleToken!
+        let token = possibleToken!
         
         print("success! retrieved \(token)")
+        login(with: token)
     }
     
     func login(with token: String) {
         isLoggingIn = true
         failureReason = ""
         authState = .initialLaunch
+        user?.token = token
         
+// TODO: WORK
+//        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+//                                    kSecAttrLabel as String: keychainItemName,
+//                                    kSecValueData as String: token]
+//
+//        let status = SecItemAdd(query as CFDictionary, nil)
+//        guard status == errSecSuccess else {
+//            failureReason = "Unable to save token to keychain. \(status)"
+//            authState = .invalidAuth
+//            return
+//        }
+//
         print("hello! authenticating with \(token)")
+       
     }
 }

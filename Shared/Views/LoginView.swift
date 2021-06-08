@@ -15,18 +15,16 @@ struct LoginView: View {
     
     
     var body: some View {
-        let stack = VStack {
-            #if os(macOS)
-            let appIcon = Image(nsImage: NSImage(imageLiteralResourceName: NSImage.applicationIconName))
-            #else
-            // If changed, please update this image asset as well!
-            let appIcon = Image("SwiftUIAccessibleAppIcon")
-            #endif
-            
-            appIcon
+        VStack {
+#if os(macOS)
+            let appImage = Image(nsImage: NSImage(imageLiteralResourceName: NSImage.applicationIconName))
+#else
+            let appImage = Image(uiImage: Bundle.main.icon!)
+#endif
+            appImage
                 .resizable()
                 .frame(width: 142.0, height: 142.0)
-                // TODO: remove once like, literally everything else is implemented
+            // TODO: remove once like, literally everything else is implemented
                 .scaledToFit()
                 .cornerRadius(15.0)
                 .padding(.top, 23.0)
@@ -50,56 +48,50 @@ struct LoginView: View {
                         loginState.login(with: enteredToken)
                     }
                 })
-                .textFieldStyle(PlainTextFieldStyle())
-                .textContentType(.password)
-                .frame(idealWidth: 100.0, maxWidth: 200.0)
-                .font(.caption)
-                .disabled(loginState.isLoggingIn)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .textContentType(.password)
+                    .frame(idealWidth: 100.0, maxWidth: 200.0)
+                    .font(.caption)
+                    .disabled(loginState.isLoggingIn)
             }.frame(minHeight: 35.0, maxHeight: 35.0)
             // Create a border around the previous two elements.
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 0.5)
-                        .foregroundColor(.secondary)
-                        .padding(.horizontal, -15)
-                        .padding(.vertical, -3)
-            )
-            .padding(.horizontal, 20)
-            .padding(.vertical, 25.0)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 0.5)
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal, -15)
+                            .padding(.vertical, -3)
+                )
+                .padding(.horizontal, 20)
+                .padding(.vertical, 25.0)
             
             
             if (loginState.isLoggingIn) {
                 ProgressView()
                     .opacity(loginState.isLoggingIn ? 1 : 0)
             } else {
-                let signIn = Button("Sign In...", action: {
+                Button("Sign In...", action: {
                     loginState.login(with: enteredToken)
                 }).disabled(enteredToken == "")
                 
                 
-                #if os(iOS)
+#if os(iOS)
                 // We'd prefer to have a larger sign in button where possible.
-                signIn.font(.title3)
-                #else
-                signIn
-                #endif
+                    .font(.title3)
+#endif
             }
             
             Text(loginState.failureReason)
                 .foregroundColor(Color.red)
         }.padding(.bottom, keyboardHeight)
         // Modify upon keyboard height being sent
-        .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-        .animation(.easeOut(duration: 0.15))
-        .padding(.horizontal, 15.0)
+            .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
+            .animation(.easeOut(duration: 0.15))
+            .padding(.horizontal, 15.0)
         
-        #if os(macOS)
-        // Under macOS, we want the window to be a proper size.
-        // TODO: 518 is adjusted from 546. Title bar size may vary.
-        return stack.frame(width: 646.0, height: 518.0)
-        #else
-        return stack
-        #endif
+#if os(macOS)
+            .frame(width: maxFrameWidth, height: maxFrameHeight)
+#endif
     }
 }
 
