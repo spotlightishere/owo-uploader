@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import owo_swift
 
 struct User {
     var username = ""
@@ -19,8 +20,10 @@ enum AuthState: Error {
     case authenticated
 }
 
-class LoginState: ObservableObject {
+public class LoginManager: ObservableObject {
     init() {}
+    
+    public static let shared = LoginManager()
     
     // The current authenticated user, if available.
     @Published var user: User? = nil
@@ -37,6 +40,9 @@ class LoginState: ObservableObject {
     // This should be set to false once login was attempted
     // from the keychain.
     @Published var authState: AuthState = .initialLaunch
+    
+    
+    var globalApi: OwOSwift?
     
     func getErrorReason(_ givenReason: OSStatus) -> String {
         let reserved: UnsafeMutableRawPointer? = nil
@@ -72,7 +78,7 @@ class LoginState: ObservableObject {
             
             return nil
         }
-                
+        
         guard let passwordData = item as? Data
         else {
             failureReason = "Unable to load data from keychain."
@@ -85,19 +91,25 @@ class LoginState: ObservableObject {
     }
     
     func loginFromKeychain() {
-        let possibleToken = retrieveTokenFromKeychain()
+        //        let possibleToken = retrieveTokenFromKeychain()
+        let possibleToken: String? = ""
         
         if authState == .noCredentials {
             print("User is logged out. Performing no action.")
             return
         }
         
-        if authState != .initialLaunch || possibleToken == nil {
+        if authState != .initialLaunch {
             print("An external error occurred retrieving keychain credentials.")
+            authState = .noCredentials
             return
         }
         
-        let token = possibleToken!
+        guard let token = possibleToken else {
+            print("An external error occurred retrieving keychain credentials.")
+            authState = .noCredentials
+            return
+        }
         
         print("success! retrieved \(token)")
         login(with: token)
@@ -109,19 +121,20 @@ class LoginState: ObservableObject {
         authState = .initialLaunch
         user?.token = token
         
-// TODO: WORK
-//        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-//                                    kSecAttrLabel as String: keychainItemName,
-//                                    kSecValueData as String: token]
-//
-//        let status = SecItemAdd(query as CFDictionary, nil)
-//        guard status == errSecSuccess else {
-//            failureReason = "Unable to save token to keychain. \(status)"
-//            authState = .invalidAuth
-//            return
-//        }
-//
+        // TODO: WORK
+        //        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+        //                                    kSecAttrLabel as String: keychainItemName,
+        //                                    kSecValueData as String: token]
+        //
+        //        let status = SecItemAdd(query as CFDictionary, nil)
+        //        guard status == errSecSuccess else {
+        //            failureReason = "Unable to save token to keychain. \(status)"
+        //            authState = .invalidAuth
+        //            return
+        //        }
+        //
         print("hello! authenticating with \(token)")
-       
+        
+        globalApi = OwOSwift(with: token)
     }
 }

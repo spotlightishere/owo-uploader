@@ -16,10 +16,10 @@
 		426C0883257531DA002A2932 /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 426C0882257531DA002A2932 /* owo.swift */; };
 		426C0889257532F4002A2932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0888257532F4002A2932 /* Constants.swift */; };
 		426C088A257532F4002A2932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0888257532F4002A2932 /* Constants.swift */; };
-		42B95C8E24AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
-		42B95C8F24AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
-		42B95C9024AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
-		42B95C9124AADBE600464E3F /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginState.swift */; };
+		42B95C8E24AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
+		42B95C8F24AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
+		42B95C9024AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
+		42B95C9124AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
 		42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C2431D24A7C9A3006BA9EA /* Publishers.swift */; };
 		42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C2431F24A7C9AA006BA9EA /* Publishers.swift */; };
 		42C853EF24A6BCAA00DBD983 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C853EE24A6BCAA00DBD983 /* Tests_iOS.swift */; };
@@ -59,7 +59,7 @@
 		426C0869257514F7002A2932 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		426C0888257532F4002A2932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42AD826B24BD23DF004EE529 /* owo.swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = owo.swift; path = ../../macOS/owo.swift; sourceTree = "<group>"; };
-		42B95C8D24AADBE600464E3F /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		42B95C8D24AADBE600464E3F /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		42C2431D24A7C9A3006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C2431F24A7C9AA006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C853D324A6BCA800DBD983 /* ScreenshottrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshottrApp.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		42B95C8524AAB27000464E3F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				42B95C8D24AADBE600464E3F /* LoginState.swift */,
+				42B95C8D24AADBE600464E3F /* LoginManager.swift */,
 				426C0888257532F4002A2932 /* Constants.swift */,
 			);
 			path = Helpers;
@@ -400,7 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				425DE348266FE5B600FD79AC /* Hacks.swift in Sources */,
-				42B95C8E24AADBE600464E3F /* LoginState.swift in Sources */,
+				42B95C8E24AADBE600464E3F /* LoginManager.swift in Sources */,
 				42D7394624AA89160020420C /* MainView.swift in Sources */,
 				42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */,
 				42C853FE24A6BCAA00DBD983 /* LoginView.swift in Sources */,
@@ -417,7 +417,7 @@
 				4214083424A74C7A00C599CE /* Hacks.swift in Sources */,
 				42D7394724AA89160020420C /* MainView.swift in Sources */,
 				42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */,
-				42B95C8F24AADBE600464E3F /* LoginState.swift in Sources */,
+				42B95C8F24AADBE600464E3F /* LoginManager.swift in Sources */,
 				42C853FF24A6BCAA00DBD983 /* LoginView.swift in Sources */,
 				426C086B257514F7002A2932 /* LoadingView.swift in Sources */,
 				42C853FD24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
@@ -429,7 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42B95C9024AADBE600464E3F /* LoginState.swift in Sources */,
+				42B95C9024AADBE600464E3F /* LoginManager.swift in Sources */,
 				42C853EF24A6BCAA00DBD983 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42B95C9124AADBE600464E3F /* LoginState.swift in Sources */,
+				42B95C9124AADBE600464E3F /* LoginManager.swift in Sources */,
 				4214083524A74C7A00C599CE /* Hacks.swift in Sources */,
 				42C853FA24A6BCAA00DBD983 /* Tests_macOS.swift in Sources */,
 			);

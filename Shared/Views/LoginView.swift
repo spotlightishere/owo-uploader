@@ -11,7 +11,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var keyboardHeight: CGFloat = 0
     @State private var enteredToken: String = ""
-    @EnvironmentObject var loginState: LoginState
+    @EnvironmentObject var loginState: LoginManager
     
     
     var body: some View {
@@ -101,12 +101,12 @@ struct LoginView_Previews: PreviewProvider {
             LoginView()
                 .preferredColorScheme(.light)
                 .previewLayout(.sizeThatFits)
-                .environmentObject(LoginState())
+                .environmentObject(LoginManager())
             
             LoginView()
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
-                .environmentObject(LoginState())
+                .environmentObject(LoginManager())
         }
     }
 }

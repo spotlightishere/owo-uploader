@@ -10,8 +10,7 @@ import SwiftUI
 
 @main
 struct ScreenshottrApp: App {
-    private var loginState = LoginState()
-    public var globalApi: OwOSwift = OwOSwift()
+    private let loginState = LoginManager.shared
     
     init() {
         authenticate()
@@ -22,7 +21,7 @@ struct ScreenshottrApp: App {
     }
     
     var body: some Scene {
-        let group = WindowGroup {
+        WindowGroup {
             if loginState.authState == .initialLaunch {
                 LoadingView()
             } else if loginState.authState != .authenticated {
@@ -31,12 +30,9 @@ struct ScreenshottrApp: App {
                 MainView()
             }
         }
-        
-        #if os(macOS)
+#if os(macOS)
         // We'd prefer to have the group's title bar hidden where possible.
-        return group.windowStyle(HiddenTitleBarWindowStyle())
-        #else
-        return group
-        #endif
+        .windowStyle(HiddenTitleBarWindowStyle())
+#endif
     }
 }
