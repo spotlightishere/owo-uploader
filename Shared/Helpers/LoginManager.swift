@@ -91,8 +91,7 @@ public class LoginManager: ObservableObject {
     }
     
     func loginFromKeychain() {
-        //        let possibleToken = retrieveTokenFromKeychain()
-        let possibleToken: String? = ""
+        let possibleToken = retrieveTokenFromKeychain()
         
         if authState == .noCredentials {
             print("User is logged out. Performing no action.")
@@ -136,5 +135,13 @@ public class LoginManager: ObservableObject {
         print("hello! authenticating with \(token)")
         
         globalApi = OwOSwift(with: token)
+        do {
+            globalApi?.apiDomain = "https://api.fox-int.cloud"
+            globalApi?.fileDomain = "https://files.fox-int.cloud"
+            globalApi?.shortenDomain = "https://links.fox-int.cloud"
+            try globalApi!.getUser()
+        } catch {
+            return
+        }
     }
 }
