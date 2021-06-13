@@ -11,15 +11,15 @@ import SwiftUI
 @main
 struct ScreenshottrApp: App {
     private let loginState = LoginManager.shared
-    
+
     init() {
         authenticate()
     }
-    
+
     func authenticate() {
         loginState.loginFromKeychain()
     }
-    
+
     var body: some Scene {
         WindowGroup {
             if loginState.authState == .initialLaunch {
