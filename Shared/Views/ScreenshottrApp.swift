@@ -10,24 +10,16 @@ import SwiftUI
 
 @main
 struct ScreenshottrApp: App {
-    private let loginState = LoginManager.shared
-
-    init() {
-        authenticate()
-    }
-
-    func authenticate() {
-        loginState.loginFromKeychain()
-    }
+    @StateObject var loginState = LoginManager()
 
     var body: some Scene {
         WindowGroup {
-            if loginState.authState == .initialLaunch {
-                LoadingView()
-            } else if loginState.authState != .authenticated {
-                LoginView().environmentObject(loginState)
+            if loginState.state.authState == .initialLaunch {
+                LoadingView().environmentObject(loginState)
+            } else if loginState.state.authState == .authenticated {
+                MainView().environmentObject(loginState)
             } else {
-                MainView()
+                LoginView().environmentObject(loginState)
             }
         }
 #if os(macOS)

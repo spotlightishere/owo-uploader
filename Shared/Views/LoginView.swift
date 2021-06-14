@@ -23,7 +23,6 @@ struct LoginView: View {
             appImage
                 .resizable()
                 .frame(width: 142.0, height: 142.0)
-            // TODO: remove once like, literally everything else is implemented
                 .scaledToFit()
                 .cornerRadius(15.0)
                 .padding(.top, 23.0)
@@ -42,11 +41,7 @@ struct LoginView: View {
                     .fontWeight(.bold)
                     .padding(.trailing, 15.0)
 
-                SecureField("Token", text: $enteredToken, onCommit: {
-                    if enteredToken != "" {
-                        loginState.login(with: enteredToken)
-                    }
-                })
+                SecureField("Token", text: $enteredToken)
                     .textFieldStyle(PlainTextFieldStyle())
                     .textContentType(.password)
                     .frame(idealWidth: 100.0, maxWidth: 200.0)
@@ -60,8 +55,7 @@ struct LoginView: View {
                             .foregroundColor(.secondary)
                             .padding(.horizontal, -15)
                             .padding(.vertical, -3)
-                )
-                .padding(.horizontal, 20)
+                ).padding(.horizontal, 20)
                 .padding(.vertical, 25.0)
 
             if loginState.isLoggingIn {
@@ -69,23 +63,24 @@ struct LoginView: View {
                     .opacity(loginState.isLoggingIn ? 1 : 0)
             } else {
                 Button("Sign In...", action: {
-                    loginState.login(with: enteredToken)
+                    async {
+                        await loginState.login(with: enteredToken)
+                    }
                 }).disabled(enteredToken == "")
-
 #if os(iOS)
                 // We'd prefer to have a larger sign in button where possible.
                     .font(.title3)
 #endif
             }
 
-            Text(loginState.failureReason)
+            Text(loginState.state.failureReason)
                 .foregroundColor(Color.red)
         }.padding(.bottom, keyboardHeight)
         // Modify upon keyboard height being sent
-            .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
-            .animation(.easeOut(duration: 0.15))
+            .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0
+            }
+            .animation(.easeOut, value: 15.0)
             .padding(.horizontal, 15.0)
-
 #if os(macOS)
             .frame(width: maxFrameWidth, height: maxFrameHeight)
 #endif

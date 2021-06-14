@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct LoadingView: View {
+    @EnvironmentObject var loginState: LoginManager
+
     var body: some View {
         HStack {
             VStack {
                 ProgressView()
             }
         }
-        #if os(macOS)
+#if os(macOS)
         .frame(width: maxFrameWidth, height: maxFrameHeight)
-        #endif
+#endif
+        .onAppear(perform: {
+            async {
+                await loginState.loginFromKeychain()
+            }
+        })
     }
 }
 

@@ -5,9 +5,9 @@
         "package": "Alamofire",
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
-          "branch": null,
-          "revision": "f96b619bcb2383b43d898402283924b80e2c4bae",
-          "version": "5.4.3"
+          "branch": "feature/async-handlers",
+          "revision": "df95b65c9b178941b24a1e4b21c985e669b06588",
+          "version": null
         }
       }
     ]
