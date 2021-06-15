@@ -42,8 +42,8 @@ public class LoginManager: ObservableObject {
     private func changeState(_ state: AuthState, reason: String) {
         // TODO: Figure out a better way to manage this.
 //        DispatchQueue.main.async {
-            self.state = LoginState(authState: state, failureReason: reason)
-            self.isLoggingIn = false
+        self.state = LoginState(authState: state, failureReason: reason)
+        isLoggingIn = false
 //        }
     }
 
@@ -60,9 +60,9 @@ public class LoginManager: ObservableObject {
 
     // A generic query to retrieve our token.
     let retrievalQuery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                kSecAttrLabel as String: keychainItemName,
-                                kSecMatchLimit as String: kSecMatchLimitOne,
-                                kSecReturnData as String: true]
+                                         kSecAttrLabel as String: keychainItemName,
+                                         kSecMatchLimit as String: kSecMatchLimitOne,
+                                         kSecReturnData as String: true]
 
     func retrieveTokenFromKeychain() -> String? {
         var item: CFTypeRef?
@@ -106,15 +106,12 @@ public class LoginManager: ObservableObject {
             return
         }
 
-        print("success! retrieved \(token)")
         await login(with: token)
     }
 
     func login(with token: String) async {
         isLoggingIn = true
         state.failureReason = ""
-
-        print("hello! authenticating with \(token)")
 
         globalApi = OwOSwift(with: token)
         do {

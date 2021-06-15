@@ -13,7 +13,7 @@ extension Publishers {
     // Adopt keyboard height via system notification
     static var keyboardHeight: AnyPublisher<CGFloat, Never> {
         let keyboardShowing = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
-            .map { $0.keyboardHeight }
+            .map(\.keyboardHeight)
 
         let keyboardHiding = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
             .map { _ in CGFloat(0) }

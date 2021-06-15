@@ -58,7 +58,7 @@
 		425DE347266FE5B600FD79AC /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
 		426C0869257514F7002A2932 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		426C0888257532F4002A2932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		42AD826B24BD23DF004EE529 /* owo.swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = owo.swift; path = ../../macOS/owo.swift; sourceTree = "<group>"; };
+		42AD826B24BD23DF004EE529 /* owo.swift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = owo.swift; path = ../../Swift/owo.swift; sourceTree = "<group>"; };
 		42B95C8D24AADBE600464E3F /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		42C2431D24A7C9A3006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C2431F24A7C9AA006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };

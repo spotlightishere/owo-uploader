@@ -15,11 +15,11 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-#if os(macOS)
-            let appImage = Image(nsImage: NSImage(imageLiteralResourceName: NSImage.applicationIconName))
-#else
-            let appImage = Image(uiImage: Bundle.main.icon!)
-#endif
+            #if os(macOS)
+                let appImage = Image(nsImage: NSImage(imageLiteralResourceName: NSImage.applicationIconName))
+            #else
+                let appImage = Image(uiImage: Bundle.main.icon!)
+            #endif
             appImage
                 .resizable()
                 .frame(width: 142.0, height: 142.0)
@@ -48,13 +48,13 @@ struct LoginView: View {
                     .font(.caption)
                     .disabled(loginState.isLoggingIn)
             }.frame(minHeight: 35.0, maxHeight: 35.0)
-            // Create a border around the previous two elements.
+                // Create a border around the previous two elements.
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 0.5)
-                            .foregroundColor(.secondary)
-                            .padding(.horizontal, -15)
-                            .padding(.vertical, -3)
+                    .stroke(lineWidth: 0.5)
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal, -15)
+                    .padding(.vertical, -3)
                 ).padding(.horizontal, 20)
                 .padding(.vertical, 25.0)
 
@@ -67,23 +67,23 @@ struct LoginView: View {
                         await loginState.login(with: enteredToken)
                     }
                 }).disabled(enteredToken == "")
-#if os(iOS)
-                // We'd prefer to have a larger sign in button where possible.
+                #if os(iOS)
+                    // We'd prefer to have a larger sign in button where possible.
                     .font(.title3)
-#endif
+                #endif
             }
 
             Text(loginState.state.failureReason)
                 .foregroundColor(Color.red)
         }.padding(.bottom, keyboardHeight)
-        // Modify upon keyboard height being sent
+            // Modify upon keyboard height being sent
             .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0
             }
             .animation(.easeOut, value: 15.0)
             .padding(.horizontal, 15.0)
-#if os(macOS)
+        #if os(macOS)
             .frame(width: maxFrameWidth, height: maxFrameHeight)
-#endif
+        #endif
     }
 }
 

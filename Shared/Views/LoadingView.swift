@@ -16,9 +16,9 @@ struct LoadingView: View {
                 ProgressView()
             }
         }
-#if os(macOS)
-        .frame(width: maxFrameWidth, height: maxFrameHeight)
-#endif
+        #if os(macOS)
+            .frame(width: maxFrameWidth, height: maxFrameHeight)
+        #endif
         .onAppear(perform: {
             async {
                 await loginState.loginFromKeychain()

@@ -22,9 +22,9 @@ struct ScreenshottrApp: App {
                 LoginView().environmentObject(loginState)
             }
         }
-#if os(macOS)
-        // We'd prefer to have the group's title bar hidden where possible.
-        .windowStyle(HiddenTitleBarWindowStyle())
-#endif
+        #if os(macOS)
+            // We'd prefer to have the group's title bar hidden where possible.
+            .windowStyle(HiddenTitleBarWindowStyle())
+        #endif
     }
 }
