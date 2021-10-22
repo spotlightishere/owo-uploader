@@ -24,7 +24,7 @@ struct ScreenshottrApp: App {
         }
         #if os(macOS)
             // We'd prefer to have the group's title bar hidden where possible.
-            .windowStyle(HiddenTitleBarWindowStyle())
+            .windowStyle(.hiddenTitleBar)
         #endif
     }
 }

@@ -47,6 +47,8 @@ struct LoginView: View {
                     .frame(idealWidth: 100.0, maxWidth: 200.0)
                     .font(.caption)
                     .disabled(loginState.isLoggingIn)
+                    .onSubmit(handleLogin)
+                    .submitLabel(.done)
             }.frame(minHeight: 35.0, maxHeight: 35.0)
                 // Create a border around the previous two elements.
                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -62,11 +64,7 @@ struct LoginView: View {
                 ProgressView()
                     .opacity(loginState.isLoggingIn ? 1 : 0)
             } else {
-                Button("Sign In...", action: {
-                    async {
-                        await loginState.login(with: enteredToken)
-                    }
-                }).disabled(enteredToken == "")
+                Button("Sign In...", action: handleLogin).disabled(enteredToken == "")
                 #if os(iOS)
                     // We'd prefer to have a larger sign in button where possible.
                     .font(.title3)
@@ -84,6 +82,16 @@ struct LoginView: View {
         #if os(macOS)
             .frame(width: maxFrameWidth, height: maxFrameHeight)
         #endif
+    }
+
+    func handleLogin() {
+        Task(priority: .userInitiated, operation: {
+            let state = await loginState.login(with: enteredToken)
+            if state.authState != .authenticated {
+                loginState.state = state
+            }
+            loginState.isLoggingIn = false
+        })
     }
 }
 

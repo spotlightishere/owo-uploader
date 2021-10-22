@@ -39,12 +39,13 @@ public class LoginManager: ObservableObject {
     /// - Parameters:
     ///   - state: The state to change to.
     ///   - reason: The reason to state for the UI.
-    private func changeState(_ state: AuthState, reason: String) {
+    private func changeState(_ state: AuthState, reason: String) -> LoginState {
         // TODO: Figure out a better way to manage this.
-//        DispatchQueue.main.async {
-        self.state = LoginState(authState: state, failureReason: reason)
-        isLoggingIn = false
-//        }
+        return LoginState(authState: state, failureReason: reason)
+    }
+    
+    private func changeStateToken(_ state: AuthState, reason: String) -> (String?, LoginState?) {
+        return (nil, changeState(state, reason: reason))
     }
 
     func getErrorReason(_ givenReason: OSStatus) -> String {
@@ -64,52 +65,50 @@ public class LoginManager: ObservableObject {
                                          kSecMatchLimit as String: kSecMatchLimitOne,
                                          kSecReturnData as String: true]
 
-    func retrieveTokenFromKeychain() -> String? {
+    func retrieveTokenFromKeychain() -> (String?, LoginState?) {
         var item: CFTypeRef?
         let status = SecItemCopyMatching(retrievalQuery as CFDictionary, &item)
         guard status != errSecItemNotFound else {
             // Seems the user has never logged in.
             // We ensure we do not present a failure reason.
-            changeState(.noCredentials, reason: "")
-            return nil
+            return changeStateToken(.noCredentials, reason: "")
         }
 
         guard status == errSecSuccess else {
             // The system hates us.
-            changeState(.invalidAuth, reason: getErrorReason(status))
-            return nil
+            return changeStateToken(.invalidAuth, reason: getErrorReason(status))
         }
 
         guard let passwordData = item as? Data else {
-            changeState(.noCredentials, reason: "Unable to load data from keychain.")
-            return nil
+            return changeStateToken(.noCredentials, reason: "Unable to load data from keychain.")
         }
-
-        return String(decoding: passwordData, as: UTF8.self)
+        
+        return (String(decoding: passwordData, as: UTF8.self), nil)
     }
 
-    func loginFromKeychain() async {
-        let possibleToken = retrieveTokenFromKeychain()
+    func loginFromKeychain() async -> LoginState {
+        let (possibleToken, authState) = retrieveTokenFromKeychain()
+        if authState == nil {
+            return authState!
+        }
 
-        if state.authState == .noCredentials {
+        if state.authState == .noCredentials || possibleToken == nil {
             print("User is logged out. Performing no action.")
-            return
+            return changeState(.noCredentials, reason: "")
         }
 
         if state.authState != .initialLaunch {
-            print("An external error occurred retrieving keychain credentials.")
-            return
+            return changeState(.noCredentials, reason: "An external error occurred retrieving keychain credentials.")
         }
 
         guard let token = possibleToken else {
-            changeState(.noCredentials, reason: "Unable to load data from keychain.")
-            return
+            return changeState(.noCredentials, reason: "Unable to load data from keychain.")
         }
 
-        await login(with: token)
+        return await login(with: token)
     }
 
-    func login(with token: String) async {
+    func login(with token: String) async -> LoginState {
         isLoggingIn = true
         state.failureReason = ""
 
@@ -118,9 +117,10 @@ public class LoginManager: ObservableObject {
             globalApi?.apiDomain = "https://api.fox-int.cloud"
             globalApi?.fileDomain = "https://files.fox-int.cloud"
             globalApi?.shortenDomain = "https://links.fox-int.cloud"
-            try await globalApi!.getUser()
 
-            changeState(.authenticated, reason: "")
+            // Check if we can successfully request the current user's information.
+            _ = try await globalApi!.getUser()
+
 
             // Add this new, valid token to the keychain.
             let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
@@ -133,17 +133,20 @@ public class LoginManager: ObservableObject {
                 let updatedData: [String: Any] = [kSecValueData as String: token.data(using: String.Encoding.utf8)!]
                 let status = SecItemUpdate(retrievalQuery as CFDictionary, updatedData as CFDictionary)
                 guard status == errSecSuccess else {
-                    changeState(.invalidAuth, reason: "Unable to update token in keychain. \(status)")
-                    return
+                    return changeState(.invalidAuth, reason: "Unable to update token in keychain. \(status)")
                 }
+                
+                // Successfully updated!
+                return changeState(.authenticated, reason: "")
             } else if status != errSecSuccess {
-                changeState(.invalidAuth, reason: "Unable to save token to keychain. \(status)")
-                return
+                return changeState(.invalidAuth, reason: "Unable to save token to keychain. \(status)")
             }
         } catch APIError.invalidToken {
-            changeState(.invalidAuth, reason: "Invalid token.")
+            return changeState(.invalidAuth, reason: "Invalid token.")
         } catch let e {
-            changeState(.invalidAuth, reason: e.localizedDescription)
+            return changeState(.invalidAuth, reason: e.localizedDescription)
         }
+        
+        return changeState(.invalidAuth, reason: "An unknown error occurred.")
     }
 }

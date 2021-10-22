@@ -9,7 +9,15 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            NavigationView {
+                Sidebar()
+                Text("hi")
+            }
+        }
+        #if os(macOS)
+            .frame(width: maxFrameWidth, height: maxFrameHeight)
+        #endif
     }
 }
 

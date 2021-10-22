@@ -20,9 +20,12 @@ struct LoadingView: View {
             .frame(width: maxFrameWidth, height: maxFrameHeight)
         #endif
         .onAppear(perform: {
-            async {
-                await loginState.loginFromKeychain()
-            }
+            Task(priority: .userInitiated, operation: {
+                let state = await loginState.loginFromKeychain()
+                if state.authState != .authenticated || state.authState != .noCredentials {
+                    loginState.state = state
+                }
+            })
         })
     }
 }

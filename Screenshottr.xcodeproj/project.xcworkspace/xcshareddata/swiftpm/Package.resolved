@@ -6,7 +6,16 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": "feature/async-handlers",
-          "revision": "df95b65c9b178941b24a1e4b21c985e669b06588",
+          "revision": "fdc7f741c37dddfc58bc476291278adefd272dc9",
+          "version": null
+        }
+      },
+      {
+        "package": "owo.swift",
+        "repositoryURL": "https://github.com/spotlightishere/owo.swift",
+        "state": {
+          "branch": "main",
+          "revision": "85618d1273b1042e4559f7e740975fa700506875",
           "version": null
         }
       }
