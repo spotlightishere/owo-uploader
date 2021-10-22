@@ -9,17 +9,23 @@
 /* Begin PBXBuildFile section */
 		4214083424A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
 		4214083524A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
+		421DA022272259C00094C5DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA020272259C00094C5DD /* Constants.swift */; };
+		421DA023272259C00094C5DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA020272259C00094C5DD /* Constants.swift */; };
+		421DA024272259C00094C5DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA020272259C00094C5DD /* Constants.swift */; };
+		421DA025272259C00094C5DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA020272259C00094C5DD /* Constants.swift */; };
+		421DA026272259C00094C5DD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA021272259C00094C5DD /* LoginManager.swift */; };
+		421DA027272259C00094C5DD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA021272259C00094C5DD /* LoginManager.swift */; };
+		421DA028272259C00094C5DD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA021272259C00094C5DD /* LoginManager.swift */; };
+		421DA029272259C00094C5DD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA021272259C00094C5DD /* LoginManager.swift */; };
+		421DA02C27225A2C0094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA02B27225A2C0094C5DD /* owo.swift */; };
+		421DA02E27225A440094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA02D27225A440094C5DD /* owo.swift */; };
+		421DA03027225A4A0094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA02F27225A4A0094C5DD /* owo.swift */; };
+		421DA03227225A980094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA03127225A980094C5DD /* owo.swift */; };
 		425DE348266FE5B600FD79AC /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DE347266FE5B600FD79AC /* Hacks.swift */; };
 		426C086A257514F7002A2932 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0869257514F7002A2932 /* LoadingView.swift */; };
 		426C086B257514F7002A2932 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0869257514F7002A2932 /* LoadingView.swift */; };
-		426C0889257532F4002A2932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0888257532F4002A2932 /* Constants.swift */; };
-		426C088A257532F4002A2932 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0888257532F4002A2932 /* Constants.swift */; };
 		4293B3EC2679CF24009F7D3A /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B3EB2679CF24009F7D3A /* Sidebar.swift */; };
 		4293B3ED2679CF24009F7D3A /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B3EB2679CF24009F7D3A /* Sidebar.swift */; };
-		42B95C8E24AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
-		42B95C8F24AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
-		42B95C9024AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
-		42B95C9124AADBE600464E3F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B95C8D24AADBE600464E3F /* LoginManager.swift */; };
 		42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C2431D24A7C9A3006BA9EA /* Publishers.swift */; };
 		42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C2431F24A7C9AA006BA9EA /* Publishers.swift */; };
 		42C853EF24A6BCAA00DBD983 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C853EE24A6BCAA00DBD983 /* Tests_iOS.swift */; };
@@ -33,8 +39,6 @@
 		42D7394624AA89160020420C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7394524AA89160020420C /* MainView.swift */; };
 		42D7394724AA89160020420C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7394524AA89160020420C /* MainView.swift */; };
 		42E28BBC261FE5EB00A88EFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42E28BBA261FE5EB00A88EFB /* Localizable.strings */; };
-		42FB050527225250007EBD0A /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 42FB050427225250007EBD0A /* owo.swift */; };
-		42FB05072722525B007EBD0A /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 42FB05062722525B007EBD0A /* owo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,12 +60,12 @@
 
 /* Begin PBXFileReference section */
 		4214083324A74C7A00C599CE /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
+		421DA020272259C00094C5DD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		421DA021272259C00094C5DD /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Screenshottr.entitlements; sourceTree = "<group>"; };
 		425DE347266FE5B600FD79AC /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
 		426C0869257514F7002A2932 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		426C0888257532F4002A2932 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4293B3EB2679CF24009F7D3A /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
-		42B95C8D24AADBE600464E3F /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		42C2431D24A7C9A3006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C2431F24A7C9AA006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C853D324A6BCA800DBD983 /* ScreenshottrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshottrApp.swift; sourceTree = "<group>"; };
@@ -88,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42FB050527225250007EBD0A /* owo.swift in Frameworks */,
+				421DA02E27225A440094C5DD /* owo.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42FB05072722525B007EBD0A /* owo.swift in Frameworks */,
+				421DA03027225A4A0094C5DD /* owo.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421DA03227225A980094C5DD /* owo.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,12 +116,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421DA02C27225A2C0094C5DD /* owo.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421DA00B2722598B0094C5DD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				421DA020272259C00094C5DD /* Constants.swift */,
+				421DA021272259C00094C5DD /* LoginManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		426C087B257531B4002A2932 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,15 +146,6 @@
 				4293B3EB2679CF24009F7D3A /* Sidebar.swift */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		42B95C8524AAB27000464E3F /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				42B95C8D24AADBE600464E3F /* LoginManager.swift */,
-				426C0888257532F4002A2932 /* Constants.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		42C2432124A7D63B006BA9EA /* Views */ = {
@@ -169,9 +175,9 @@
 		42C853D224A6BCA800DBD983 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				421DA00B2722598B0094C5DD /* Helpers */,
 				42E28BB0261FE55800A88EFB /* Localization */,
 				42E98CE624A7F05C0006D127 /* Components */,
-				42B95C8524AAB27000464E3F /* Helpers */,
 				42C2432124A7D63B006BA9EA /* Views */,
 				42C853D524A6BCAA00DBD983 /* Assets.xcassets */,
 			);
@@ -261,7 +267,7 @@
 			);
 			name = iOS;
 			packageProductDependencies = (
-				42FB050427225250007EBD0A /* owo.swift */,
+				421DA02D27225A440094C5DD /* owo.swift */,
 			);
 			productName = iOS;
 			productReference = 42C853DA24A6BCAA00DBD983 /* Screenshottr.app */;
@@ -281,7 +287,7 @@
 			);
 			name = macOS;
 			packageProductDependencies = (
-				42FB05062722525B007EBD0A /* owo.swift */,
+				421DA02F27225A4A0094C5DD /* owo.swift */,
 			);
 			productName = macOS;
 			productReference = 42C853E224A6BCAA00DBD983 /* Screenshottr.app */;
@@ -301,6 +307,9 @@
 				42C853EC24A6BCAA00DBD983 /* PBXTargetDependency */,
 			);
 			name = "Tests iOS";
+			packageProductDependencies = (
+				421DA03127225A980094C5DD /* owo.swift */,
+			);
 			productName = "Tests iOS";
 			productReference = 42C853EA24A6BCAA00DBD983 /* Tests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -319,6 +328,9 @@
 				42C853F724A6BCAA00DBD983 /* PBXTargetDependency */,
 			);
 			name = "Tests macOS";
+			packageProductDependencies = (
+				421DA02B27225A2C0094C5DD /* owo.swift */,
+			);
 			productName = "Tests macOS";
 			productReference = 42C853F524A6BCAA00DBD983 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -359,7 +371,7 @@
 			);
 			mainGroup = 42C853CD24A6BCA800DBD983;
 			packageReferences = (
-				42FB050327225250007EBD0A /* XCRemoteSwiftPackageReference "owo" */,
+				421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */,
 			);
 			productRefGroup = 42C853DB24A6BCAA00DBD983 /* Products */;
 			projectDirPath = "";
@@ -413,14 +425,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				425DE348266FE5B600FD79AC /* Hacks.swift in Sources */,
-				42B95C8E24AADBE600464E3F /* LoginManager.swift in Sources */,
 				42D7394624AA89160020420C /* MainView.swift in Sources */,
 				42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */,
 				42C853FE24A6BCAA00DBD983 /* LoginView.swift in Sources */,
-				426C0889257532F4002A2932 /* Constants.swift in Sources */,
 				42C853FC24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
+				421DA026272259C00094C5DD /* LoginManager.swift in Sources */,
 				4293B3EC2679CF24009F7D3A /* Sidebar.swift in Sources */,
 				426C086A257514F7002A2932 /* LoadingView.swift in Sources */,
+				421DA022272259C00094C5DD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +443,12 @@
 				4214083424A74C7A00C599CE /* Hacks.swift in Sources */,
 				42D7394724AA89160020420C /* MainView.swift in Sources */,
 				42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */,
-				42B95C8F24AADBE600464E3F /* LoginManager.swift in Sources */,
 				42C853FF24A6BCAA00DBD983 /* LoginView.swift in Sources */,
 				426C086B257514F7002A2932 /* LoadingView.swift in Sources */,
+				421DA027272259C00094C5DD /* LoginManager.swift in Sources */,
 				42C853FD24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
 				4293B3ED2679CF24009F7D3A /* Sidebar.swift in Sources */,
-				426C088A257532F4002A2932 /* Constants.swift in Sources */,
+				421DA023272259C00094C5DD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,8 +456,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42B95C9024AADBE600464E3F /* LoginManager.swift in Sources */,
 				42C853EF24A6BCAA00DBD983 /* Tests_iOS.swift in Sources */,
+				421DA024272259C00094C5DD /* Constants.swift in Sources */,
+				421DA028272259C00094C5DD /* LoginManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,9 +466,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42B95C9124AADBE600464E3F /* LoginManager.swift in Sources */,
 				4214083524A74C7A00C599CE /* Hacks.swift in Sources */,
+				421DA029272259C00094C5DD /* LoginManager.swift in Sources */,
 				42C853FA24A6BCAA00DBD983 /* Tests_macOS.swift in Sources */,
+				421DA025272259C00094C5DD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,7 +775,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.joscomputing.Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -783,7 +797,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.joscomputing.Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -843,7 +857,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		42FB050327225250007EBD0A /* XCRemoteSwiftPackageReference "owo" */ = {
+		421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/spotlightishere/owo.swift";
 			requirement = {
@@ -854,14 +868,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42FB050427225250007EBD0A /* owo.swift */ = {
+		421DA02B27225A2C0094C5DD /* owo.swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 42FB050327225250007EBD0A /* XCRemoteSwiftPackageReference "owo" */;
+			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
 			productName = owo.swift;
 		};
-		42FB05062722525B007EBD0A /* owo.swift */ = {
+		421DA02D27225A440094C5DD /* owo.swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 42FB050327225250007EBD0A /* XCRemoteSwiftPackageReference "owo" */;
+			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
+			productName = owo.swift;
+		};
+		421DA02F27225A4A0094C5DD /* owo.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
+			productName = owo.swift;
+		};
+		421DA03127225A980094C5DD /* owo.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
 			productName = owo.swift;
 		};
 /* End XCSwiftPackageProductDependency section */
