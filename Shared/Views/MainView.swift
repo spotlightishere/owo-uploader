@@ -10,13 +10,19 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         VStack {
-            NavigationView {
-                Sidebar()
-                Text("hi")
+            Text("hi")
+        }.toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {
+                    // todo
+                }) {
+                    Label("Upload", systemImage: "square.and.arrow.up")
+                }
             }
         }
+
         #if os(macOS)
-            .frame(width: maxFrameWidth, height: maxFrameHeight)
+        .frame(width: maxFrameWidth, height: maxFrameHeight)
         #endif
     }
 }
