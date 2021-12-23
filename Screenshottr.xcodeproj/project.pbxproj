@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420A645D2774F5C900B1C8AA /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 420A645C2774F5C900B1C8AA /* OwoKit */; };
+		420A645F2774F5CE00B1C8AA /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 420A645E2774F5CE00B1C8AA /* OwoKit */; };
+		420A6461277504CD00B1C8AA /* OSStatus+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A6460277504CD00B1C8AA /* OSStatus+Error.swift */; };
+		420A6462277504CD00B1C8AA /* OSStatus+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A6460277504CD00B1C8AA /* OSStatus+Error.swift */; };
+		420A6463277504CD00B1C8AA /* OSStatus+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A6460277504CD00B1C8AA /* OSStatus+Error.swift */; };
+		420A6464277504CD00B1C8AA /* OSStatus+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A6460277504CD00B1C8AA /* OSStatus+Error.swift */; };
 		4214083424A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
 		4214083524A74C7A00C599CE /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214083324A74C7A00C599CE /* Hacks.swift */; };
 		421DA022272259C00094C5DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA020272259C00094C5DD /* Constants.swift */; };
@@ -17,13 +23,7 @@
 		421DA027272259C00094C5DD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA021272259C00094C5DD /* LoginManager.swift */; };
 		421DA028272259C00094C5DD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA021272259C00094C5DD /* LoginManager.swift */; };
 		421DA029272259C00094C5DD /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421DA021272259C00094C5DD /* LoginManager.swift */; };
-		421DA02C27225A2C0094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA02B27225A2C0094C5DD /* owo.swift */; };
-		421DA02E27225A440094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA02D27225A440094C5DD /* owo.swift */; };
-		421DA03027225A4A0094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA02F27225A4A0094C5DD /* owo.swift */; };
-		421DA03227225A980094C5DD /* owo.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 421DA03127225A980094C5DD /* owo.swift */; };
 		425DE348266FE5B600FD79AC /* Hacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DE347266FE5B600FD79AC /* Hacks.swift */; };
-		426C086A257514F7002A2932 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0869257514F7002A2932 /* LoadingView.swift */; };
-		426C086B257514F7002A2932 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C0869257514F7002A2932 /* LoadingView.swift */; };
 		4293B3EC2679CF24009F7D3A /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B3EB2679CF24009F7D3A /* Sidebar.swift */; };
 		4293B3ED2679CF24009F7D3A /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293B3EB2679CF24009F7D3A /* Sidebar.swift */; };
 		42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C2431D24A7C9A3006BA9EA /* Publishers.swift */; };
@@ -59,12 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420A645B2774F5AB00B1C8AA /* OwoKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OwoKit; sourceTree = "<group>"; };
+		420A6460277504CD00B1C8AA /* OSStatus+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSStatus+Error.swift"; sourceTree = "<group>"; };
 		4214083324A74C7A00C599CE /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
 		421DA020272259C00094C5DD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		421DA021272259C00094C5DD /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Screenshottr.entitlements; sourceTree = "<group>"; };
 		425DE347266FE5B600FD79AC /* Hacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacks.swift; sourceTree = "<group>"; };
-		426C0869257514F7002A2932 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4293B3EB2679CF24009F7D3A /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		42C2431D24A7C9A3006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		42C2431F24A7C9AA006BA9EA /* Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
@@ -92,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421DA02E27225A440094C5DD /* owo.swift in Frameworks */,
+				420A645D2774F5C900B1C8AA /* OwoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421DA03027225A4A0094C5DD /* owo.swift in Frameworks */,
+				420A645F2774F5CE00B1C8AA /* OwoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +109,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421DA03227225A980094C5DD /* owo.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,18 +116,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421DA02C27225A2C0094C5DD /* owo.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420A64592774F52400B1C8AA /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				420A645B2774F5AB00B1C8AA /* OwoKit */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		421DA00B2722598B0094C5DD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				421DA020272259C00094C5DD /* Constants.swift */,
 				421DA021272259C00094C5DD /* LoginManager.swift */,
+				420A6460277504CD00B1C8AA /* OSStatus+Error.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -153,7 +161,6 @@
 			children = (
 				42C853D324A6BCA800DBD983 /* ScreenshottrApp.swift */,
 				42C853D424A6BCA800DBD983 /* LoginView.swift */,
-				426C0869257514F7002A2932 /* LoadingView.swift */,
 				42A1EA4626799A18005BFB8A /* Main */,
 			);
 			path = Views;
@@ -162,6 +169,7 @@
 		42C853CD24A6BCA800DBD983 = {
 			isa = PBXGroup;
 			children = (
+				420A64592774F52400B1C8AA /* Packages */,
 				42C853D224A6BCA800DBD983 /* Shared */,
 				42C853DC24A6BCAA00DBD983 /* iOS */,
 				42C853E324A6BCAA00DBD983 /* macOS */,
@@ -267,7 +275,7 @@
 			);
 			name = iOS;
 			packageProductDependencies = (
-				421DA02D27225A440094C5DD /* owo.swift */,
+				420A645C2774F5C900B1C8AA /* OwoKit */,
 			);
 			productName = iOS;
 			productReference = 42C853DA24A6BCAA00DBD983 /* Screenshottr.app */;
@@ -288,7 +296,7 @@
 			);
 			name = macOS;
 			packageProductDependencies = (
-				421DA02F27225A4A0094C5DD /* owo.swift */,
+				420A645E2774F5CE00B1C8AA /* OwoKit */,
 			);
 			productName = macOS;
 			productReference = 42C853E224A6BCAA00DBD983 /* Screenshottr.app */;
@@ -309,7 +317,6 @@
 			);
 			name = "Tests iOS";
 			packageProductDependencies = (
-				421DA03127225A980094C5DD /* owo.swift */,
 			);
 			productName = "Tests iOS";
 			productReference = 42C853EA24A6BCAA00DBD983 /* Tests iOS.xctest */;
@@ -330,7 +337,6 @@
 			);
 			name = "Tests macOS";
 			packageProductDependencies = (
-				421DA02B27225A2C0094C5DD /* owo.swift */,
 			);
 			productName = "Tests macOS";
 			productReference = 42C853F524A6BCAA00DBD983 /* Tests macOS.xctest */;
@@ -372,7 +378,6 @@
 			);
 			mainGroup = 42C853CD24A6BCA800DBD983;
 			packageReferences = (
-				421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */,
 			);
 			productRefGroup = 42C853DB24A6BCAA00DBD983 /* Products */;
 			projectDirPath = "";
@@ -445,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420A6461277504CD00B1C8AA /* OSStatus+Error.swift in Sources */,
 				425DE348266FE5B600FD79AC /* Hacks.swift in Sources */,
 				42D7394624AA89160020420C /* MainView.swift in Sources */,
 				42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */,
@@ -452,7 +458,6 @@
 				42C853FC24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
 				421DA026272259C00094C5DD /* LoginManager.swift in Sources */,
 				4293B3EC2679CF24009F7D3A /* Sidebar.swift in Sources */,
-				426C086A257514F7002A2932 /* LoadingView.swift in Sources */,
 				421DA022272259C00094C5DD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,11 +466,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420A6462277504CD00B1C8AA /* OSStatus+Error.swift in Sources */,
 				4214083424A74C7A00C599CE /* Hacks.swift in Sources */,
 				42D7394724AA89160020420C /* MainView.swift in Sources */,
 				42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */,
 				42C853FF24A6BCAA00DBD983 /* LoginView.swift in Sources */,
-				426C086B257514F7002A2932 /* LoadingView.swift in Sources */,
 				421DA027272259C00094C5DD /* LoginManager.swift in Sources */,
 				42C853FD24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
 				4293B3ED2679CF24009F7D3A /* Sidebar.swift in Sources */,
@@ -479,6 +484,7 @@
 			files = (
 				42C853EF24A6BCAA00DBD983 /* Tests_iOS.swift in Sources */,
 				421DA024272259C00094C5DD /* Constants.swift in Sources */,
+				420A6463277504CD00B1C8AA /* OSStatus+Error.swift in Sources */,
 				421DA028272259C00094C5DD /* LoginManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420A6464277504CD00B1C8AA /* OSStatus+Error.swift in Sources */,
 				4214083524A74C7A00C599CE /* Hacks.swift in Sources */,
 				421DA029272259C00094C5DD /* LoginManager.swift in Sources */,
 				42C853FA24A6BCAA00DBD983 /* Tests_macOS.swift in Sources */,
@@ -877,37 +884,14 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/spotlightishere/owo.swift";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		421DA02B27225A2C0094C5DD /* owo.swift */ = {
+		420A645C2774F5C900B1C8AA /* OwoKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
-			productName = owo.swift;
+			productName = OwoKit;
 		};
-		421DA02D27225A440094C5DD /* owo.swift */ = {
+		420A645E2774F5CE00B1C8AA /* OwoKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
-			productName = owo.swift;
-		};
-		421DA02F27225A4A0094C5DD /* owo.swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
-			productName = owo.swift;
-		};
-		421DA03127225A980094C5DD /* owo.swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 421DA02A27225A2C0094C5DD /* XCRemoteSwiftPackageReference "owo" */;
-			productName = owo.swift;
+			productName = OwoKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

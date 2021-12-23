@@ -10,7 +10,10 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var keyboardHeight: CGFloat = 0
-    @State private var enteredToken: String = ""
+    @State private var enteredToken = ""
+    
+    @State private var isLoggingIn = false
+    @State private var errorDescription = ""
     @EnvironmentObject var loginState: LoginManager
 
     var body: some View {
@@ -46,7 +49,7 @@ struct LoginView: View {
                     .textContentType(.password)
                     .frame(idealWidth: 100.0, maxWidth: 200.0)
                     .font(.caption)
-                    .disabled(loginState.isLoggingIn)
+                    .disabled(isLoggingIn)
                     .onSubmit(handleLogin)
                     .submitLabel(.done)
             }.frame(minHeight: 35.0, maxHeight: 35.0)
@@ -60,9 +63,9 @@ struct LoginView: View {
                 ).padding(.horizontal, 20)
                 .padding(.vertical, 25.0)
 
-            if loginState.isLoggingIn {
+            if isLoggingIn {
                 ProgressView()
-                    .opacity(loginState.isLoggingIn ? 1 : 0)
+                    .opacity(1)
             } else {
                 Button("Sign In...", action: handleLogin).disabled(enteredToken == "")
                 #if os(iOS)
@@ -71,7 +74,7 @@ struct LoginView: View {
                 #endif
             }
 
-            Text(loginState.state.failureReason)
+            Text(errorDescription)
                 .foregroundColor(Color.red)
         }.padding(.bottom, keyboardHeight)
             // Modify upon keyboard height being sent
@@ -82,16 +85,31 @@ struct LoginView: View {
         #if os(macOS)
             .frame(width: maxFrameWidth, height: maxFrameHeight)
         #endif
+            .onAppear {
+                isLoggingIn = true
+                Task {
+                    do {
+                        try await loginState.loginFromKeychain()
+                    } catch AuthError.noCredentials {
+                        // If we do not have credentials, we do not need to do anything.
+                    } catch (let e) {
+                        errorDescription = e.localizedDescription
+                    }
+                }
+                isLoggingIn = false
+            }
     }
 
     func handleLogin() {
-        Task(priority: .userInitiated, operation: {
-            let state = await loginState.login(with: enteredToken)
-            if state.authState != .authenticated {
-                loginState.state = state
+        Task {
+            isLoggingIn = true
+            do {
+                try await loginState.login(with: enteredToken)
+            } catch (let e) {
+                errorDescription = e.localizedDescription
             }
-            loginState.isLoggingIn = false
-        })
+            isLoggingIn = false
+        }
     }
 }
 

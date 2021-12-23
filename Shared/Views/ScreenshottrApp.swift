@@ -5,7 +5,7 @@
 //  Created by Spotlight Deveaux on 2020-06-29.
 //
 
-import owo_swift
+import OwoKit
 import SwiftUI
 
 @main
@@ -14,9 +14,7 @@ struct ScreenshottrApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if loginState.state.authState == .initialLaunch {
-                LoadingView().environmentObject(loginState)
-            } else if loginState.state.authState == .authenticated {
+            if loginState.authenticated {
                 MainView().environmentObject(loginState)
             } else {
                 LoginView().environmentObject(loginState)
