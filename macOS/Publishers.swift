@@ -2,7 +2,7 @@
 //  Publishers.swift
 //  macOS
 //
-//  Created by Spotlight Deveaux on 6/27/20.
+//  Created by Spotlight Deveaux on 2020-06-29.
 //
 
 import Combine
