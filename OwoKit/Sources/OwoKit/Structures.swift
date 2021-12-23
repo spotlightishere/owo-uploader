@@ -22,16 +22,16 @@ extension APIError: LocalizedError {
             return "Invalid token."
         }
     }
-    
+
     public var failureReason: String? {
         switch self {
-        case .serviceError(let errorCode, let reason):
+        case let .serviceError(errorCode, reason):
             return "The server returned error code \(errorCode) with reason \(reason)."
         case .invalidToken:
             return "An invalid token was utilized."
         }
     }
-    
+
     public var recoverySuggestion: String? {
         switch self {
         case .serviceError:

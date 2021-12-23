@@ -33,9 +33,9 @@ public extension DataRequest {
             // If possible, we'll throw an error with the information given by the API.
             let error = await serializingDecodable(ErrorInfo.self).response
             let errorInfo: ErrorInfo = try error.getSuccess()
-            
+
             // We may have an authentication-related error.
-            if errorInfo.errorCode == 401 && errorInfo.description == "bad token" {
+            if errorInfo.errorCode == 401, errorInfo.description == "bad token" {
                 throw APIError.invalidToken
             } else {
                 throw APIError.serviceError(errorCode: errorInfo.errorCode, reason: errorInfo.description)

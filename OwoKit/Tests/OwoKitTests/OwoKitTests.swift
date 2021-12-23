@@ -1,5 +1,5 @@
-import XCTest
 @testable import OwoKit
+import XCTest
 
 final class OwoKitTests: XCTestCase {
     func testExample() throws {

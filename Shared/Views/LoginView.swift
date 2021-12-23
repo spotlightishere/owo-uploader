@@ -11,7 +11,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var keyboardHeight: CGFloat = 0
     @State private var enteredToken = ""
-    
+
     @State private var isLoggingIn = false
     @State private var errorDescription = ""
     @EnvironmentObject var loginState: LoginManager
@@ -92,7 +92,7 @@ struct LoginView: View {
                         try await loginState.loginFromKeychain()
                     } catch AuthError.noCredentials {
                         // If we do not have credentials, we do not need to do anything.
-                    } catch (let e) {
+                    } catch let e {
                         errorDescription = e.localizedDescription
                     }
                 }
@@ -105,7 +105,7 @@ struct LoginView: View {
             isLoggingIn = true
             do {
                 try await loginState.login(with: enteredToken)
-            } catch (let e) {
+            } catch let e {
                 errorDescription = e.localizedDescription
             }
             isLoggingIn = false

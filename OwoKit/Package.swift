@@ -15,17 +15,20 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "OwoKit",
-            targets: ["OwoKit"]),
+            targets: ["OwoKit"]
+        ),
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.5.0"))
+        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.5.0")),
     ],
     targets: [
         .target(
             name: "OwoKit",
-            dependencies: ["Alamofire"]),
+            dependencies: ["Alamofire"]
+        ),
         .testTarget(
             name: "OwoKitTests",
-            dependencies: ["OwoKit"]),
+            dependencies: ["OwoKit"]
+        ),
     ]
 )

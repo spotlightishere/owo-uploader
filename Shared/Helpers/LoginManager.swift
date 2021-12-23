@@ -22,7 +22,7 @@ extension AuthError: LocalizedError {
             return "Unable to load data from keychain."
         }
     }
-    
+
     public var recoverySuggestion: String? {
         switch self {
         case .noCredentials:
@@ -49,6 +49,8 @@ public class LoginManager: ObservableObject {
                                          kSecReturnData as String: true]
 
     func retrieveTokenFromKeychain() throws -> String {
+        return "token"
+
         var item: CFTypeRef?
         let status = SecItemCopyMatching(retrievalQuery as CFDictionary, &item)
         guard status != errSecItemNotFound else {
@@ -65,7 +67,7 @@ public class LoginManager: ObservableObject {
         guard let passwordData = item as? Data else {
             throw AuthError.decodingError
         }
-        
+
         return String(decoding: passwordData, as: UTF8.self)
     }
 
@@ -77,7 +79,7 @@ public class LoginManager: ObservableObject {
             // We cannot do anything if we do not have credentials.
             return
         }
-        
+
         try await login(with: token!)
     }
 
@@ -89,7 +91,6 @@ public class LoginManager: ObservableObject {
 
         // Check if we can successfully request the current user's information.
         _ = try await testingApi.getUser()
-
 
         // Add this new, valid token to the keychain.
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
@@ -107,7 +108,7 @@ public class LoginManager: ObservableObject {
         } else if status != errSecSuccess {
             throw status
         }
-        
+
         globalApi = testingApi
         DispatchQueue.main.sync {
             authenticated = true
