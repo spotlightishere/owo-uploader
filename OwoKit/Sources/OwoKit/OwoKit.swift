@@ -43,16 +43,26 @@ public class OwOSwift {
         ]
     }
 
+    /// Returns a usable request with proper headers set for a GET request, including parameters.
+    /// - Parameters:
+    ///   - routePath: The route to make a GET request to.
+    ///   - params: An array of parameters to set alongside this request.
+    /// - Returns: A `DataRequest` usable to make the request with.
+    private func getRequest(to routePath: String, params: Parameters?) -> DataRequest {
+        AF.request(route(for: routePath), method: .get, parameters: params, headers: getHeaders())
+    }
+    
     /// Returns a usable request with proper headers set for a GET request.
     /// - Parameter routePath: The route to make a GET request to.
     /// - Returns: A `DataRequest` usable to make the request with.
     private func getRequest(to routePath: String) -> DataRequest {
-        AF.request(route(for: routePath), method: .get, headers: getHeaders())
+        getRequest(to: routePath, params: nil)
     }
-
+    
     /// Returns a usable request with proper headers set for a POST request.
-    /// - Parameter routePath: The route to make a POST request to.
-    /// - Parameter multipartForm: Files to be attached to this request.
+    /// - Parameters:
+    ///   - routePath: The route to make a POST request to.
+    ///   - multipartForm: Files to be attached to this request.
     /// - Returns: A `DataRequest` usable to make the request with.
     private func uploadRequest(to routePath: String, multipartForm: MultipartFormData) -> DataRequest {
         AF.upload(multipartFormData: multipartForm, to: route(for: routePath), headers: getHeaders())
@@ -62,5 +72,32 @@ public class OwOSwift {
     /// - Returns: User account details for the given token
     public func getUser() async throws -> UserInfo {
         try await getRequest(to: "/users/me").handle(type: User.self).user
+    }
+    
+    /// Queries the API for objects associated to the current user.
+    /// - Parameters:
+    ///   - limit: A cap of objects to query. Defaults to 100, the maximum.
+    ///   - offset: The offset of objects to read, usable for pagination.
+    /// - Returns: A listing of objects for the given token
+    public func getObjects(limit: Int = 100, offset: Int = 0) async throws -> ObjectList {
+        if limit > maxObjectLimit {
+            throw APIError.exceedsMaxLimit
+        }
+        
+        return try await getRequest(to: "/objects", params: ["limit": limit, "offset": offset]).handle(type: ObjectList.self)
+    }
+    
+    /// Retrieves information about the object with the given key.
+    /// - Parameter key: Alsk known as the dir of the object + filename + extension, it starts with a leading forward slash.
+    /// - Returns: Object data
+    public func getObject(key: String) async throws -> Object {
+        try await getRequest(to: "/objects" + key).handle(type: ObjectQuery.self).data
+    }
+    
+    /// Retrieves information about the object with the given filename.
+    /// - Parameter filename: The filename, with an extension.
+    /// - Returns: Object data
+    public func getObject(filename: String) async throws -> Object {
+        try await getObject(key: "/" + filename)
     }
 }

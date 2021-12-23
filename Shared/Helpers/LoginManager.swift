@@ -41,7 +41,12 @@ public class LoginManager: ObservableObject {
     @Published var authenticated = false
 
     var globalApi: OwOSwift?
+    var userInfo: UserInfo?
 
+    var api: OwOSwift {
+        globalApi!
+    }
+    
     // A generic query to retrieve our token.
     let retrievalQuery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                          kSecAttrLabel as String: keychainItemName,
@@ -85,9 +90,9 @@ public class LoginManager: ObservableObject {
 
     func login(with token: String) async throws {
         let testingApi = OwOSwift(with: token)
-        testingApi.apiDomain = "https://api.fox-int.cloud"
-        testingApi.fileDomain = "https://files.fox-int.cloud"
-        testingApi.shortenDomain = "https://links.fox-int.cloud"
+//        testingApi.apiDomain = "https://api.fox-int.cloud"
+//        testingApi.fileDomain = "https://files.fox-int.cloud"
+//        testingApi.shortenDomain = "https://links.fox-int.cloud"
 
         // Check if we can successfully request the current user's information.
         _ = try await testingApi.getUser()
