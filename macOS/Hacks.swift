@@ -7,3 +7,9 @@
 
 import AppKit
 import Foundation
+
+extension Bundle {
+    var icon: NSImage {
+        NSImage(imageLiteralResourceName: NSImage.applicationIconName)
+    }
+}

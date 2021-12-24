@@ -18,12 +18,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-            #if os(macOS)
-                let appImage = Image(nsImage: NSImage(imageLiteralResourceName: NSImage.applicationIconName))
-            #else
-                let appImage = Image(uiImage: Bundle.main.icon!)
-            #endif
-            appImage
+            Image(image: Bundle.main.icon)
                 .resizable()
                 .frame(width: 142.0, height: 142.0)
                 .scaledToFit()
@@ -78,8 +73,7 @@ struct LoginView: View {
                 .foregroundColor(Color.red)
         }.padding(.bottom, keyboardHeight)
             // Modify upon keyboard height being sent
-            .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0
-            }
+            .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
             .animation(.easeOut, value: 15.0)
             .padding(.horizontal, 15.0)
         #if os(macOS)

@@ -41,6 +41,8 @@
 		42F20DB127756E2E00425C58 /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42F20DB027756E2E00425C58 /* OwoKit */; };
 		42F20DB327756EE000425C58 /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42F20DB227756EE000425C58 /* OwoKit */; };
 		42F20DB527756EE400425C58 /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42F20DB427756EE400425C58 /* OwoKit */; };
+		42F20DB7277580F900425C58 /* NativeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F20DB6277580F900425C58 /* NativeImage.swift */; };
+		42F20DB92775814A00425C58 /* NativeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F20DB82775814A00425C58 /* NativeImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		42DC26572775349800EF16E4 /* FileThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileThumbnail.swift; sourceTree = "<group>"; };
 		42E28BBB261FE5EB00A88EFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		42E28BBD261FE5EE00A88EFB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		42F20DB6277580F900425C58 /* NativeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeImage.swift; sourceTree = "<group>"; };
+		42F20DB82775814A00425C58 /* NativeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,7 @@
 				422C8A1F24AEC1EB00B5A44F /* Screenshottr.entitlements */,
 				425DE347266FE5B600FD79AC /* Hacks.swift */,
 				42C2431D24A7C9A3006BA9EA /* Publishers.swift */,
+				42F20DB6277580F900425C58 /* NativeImage.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				42C853E524A6BCAA00DBD983 /* macOS.entitlements */,
 				4214083324A74C7A00C599CE /* Hacks.swift */,
 				42C2431F24A7C9AA006BA9EA /* Publishers.swift */,
+				42F20DB82775814A00425C58 /* NativeImage.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				42DC26582775349800EF16E4 /* FileThumbnail.swift in Sources */,
 				42D7394624AA89160020420C /* MainView.swift in Sources */,
 				42C2431E24A7C9A3006BA9EA /* Publishers.swift in Sources */,
+				42F20DB7277580F900425C58 /* NativeImage.swift in Sources */,
 				42C853FE24A6BCAA00DBD983 /* LoginView.swift in Sources */,
 				42C853FC24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
 				421DA026272259C00094C5DD /* LoginManager.swift in Sources */,
@@ -470,6 +477,7 @@
 				42D7394724AA89160020420C /* MainView.swift in Sources */,
 				42C2432024A7C9AA006BA9EA /* Publishers.swift in Sources */,
 				42C853FF24A6BCAA00DBD983 /* LoginView.swift in Sources */,
+				42F20DB92775814A00425C58 /* NativeImage.swift in Sources */,
 				421DA027272259C00094C5DD /* LoginManager.swift in Sources */,
 				42C853FD24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
 				421DA023272259C00094C5DD /* Constants.swift in Sources */,
