@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FileThumbnail: View {
     let object: Object
-    
+
     var body: some View {
         VStack {
             AsyncImage(url: object.thumbnailURL) { image in

@@ -12,8 +12,8 @@ struct MainView: View {
     @EnvironmentObject var loginState: LoginManager
     @State var objects: [Object] = []
     var columns: [GridItem] =
-            Array(repeating: .init(.flexible()), count: 3)
-    
+        Array(repeating: .init(.flexible()), count: 3)
+
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
@@ -34,13 +34,13 @@ struct MainView: View {
         #if os(macOS)
         .frame(width: maxFrameWidth, height: maxFrameHeight)
         #endif
-        
+
         .onAppear {
             Task {
                 do {
                     let test = try await loginState.api.getObjects()
                     self.objects = test.objects
-                } catch (let e) {
+                } catch let e {
                     print(e)
                 }
             }

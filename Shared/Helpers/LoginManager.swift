@@ -35,8 +35,6 @@ extension AuthError: LocalizedError {
 }
 
 public class LoginManager: ObservableObject {
-    init() {}
-
     // Whether we are authenticated.
     @Published var authenticated = false
 
@@ -46,7 +44,7 @@ public class LoginManager: ObservableObject {
     var api: OwOSwift {
         globalApi!
     }
-    
+
     // A generic query to retrieve our token.
     let retrievalQuery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                          kSecAttrLabel as String: keychainItemName,
@@ -56,7 +54,7 @@ public class LoginManager: ObservableObject {
     func retrieveTokenFromKeychain() throws -> String {
         var item: CFTypeRef?
         let status = SecItemCopyMatching(retrievalQuery as CFDictionary, &item)
-        guard status != errSecItemNotFound else {
+        if status == errSecItemNotFound || status == errSecUserCanceled {
             // Seems the user has never logged in.
             // We ensure we do not present a failure reason.
             throw AuthError.noCredentials
@@ -75,22 +73,12 @@ public class LoginManager: ObservableObject {
     }
 
     func loginFromKeychain() async throws {
-        var token: String?
-        do {
-            token = try retrieveTokenFromKeychain()
-        } catch AuthError.noCredentials {
-            // We cannot do anything if we do not have credentials.
-            return
-        }
-
-        try await login(with: token!)
+        let token = try retrieveTokenFromKeychain()
+        try await login(with: token)
     }
 
     func login(with token: String) async throws {
         let testingApi = OwOSwift(with: token)
-//        testingApi.apiDomain = "https://api.fox-int.cloud"
-//        testingApi.fileDomain = "https://files.fox-int.cloud"
-//        testingApi.shortenDomain = "https://links.fox-int.cloud"
 
         // Check if we can successfully request the current user's information.
         _ = try await testingApi.getUser()
@@ -100,15 +88,15 @@ public class LoginManager: ObservableObject {
                                     kSecAttrLabel as String: keychainItemName,
                                     kSecValueData as String: token.data(using: String.Encoding.utf8)!]
 
-        let status = SecItemAdd(query as CFDictionary, nil)
+        var status = SecItemAdd(query as CFDictionary, nil)
         if status == errSecDuplicateItem {
             // If needed, update the existing keychain item with our new token.
             let updatedData: [String: Any] = [kSecValueData as String: token.data(using: String.Encoding.utf8)!]
-            let status = SecItemUpdate(retrievalQuery as CFDictionary, updatedData as CFDictionary)
-            guard status == errSecSuccess else {
-                throw status
-            }
-        } else if status != errSecSuccess {
+            status = SecItemUpdate(retrievalQuery as CFDictionary, updatedData as CFDictionary)
+        }
+
+        // Determine whether adding or updating failed.
+        guard status == errSecSuccess else {
             throw status
         }
 

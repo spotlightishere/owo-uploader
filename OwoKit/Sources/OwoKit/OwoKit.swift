@@ -45,14 +45,14 @@ public class OwOSwift {
     private func getRequest(to routePath: String, params: Parameters?) -> DataRequest {
         AF.request(route(for: routePath), method: .get, parameters: params, headers: getHeaders())
     }
-    
+
     /// Returns a usable request with proper headers set for a GET request.
     /// - Parameter routePath: The route to make a GET request to.
     /// - Returns: A `DataRequest` usable to make the request with.
     private func getRequest(to routePath: String) -> DataRequest {
         getRequest(to: routePath, params: nil)
     }
-    
+
     /// Returns a usable request with proper headers set for a POST request.
     /// - Parameters:
     ///   - routePath: The route to make a POST request to.
@@ -67,7 +67,7 @@ public class OwOSwift {
     public func getUser() async throws -> UserInfo {
         try await getRequest(to: "/users/me").handle(type: User.self).user
     }
-    
+
     /// Queries the API for objects associated to the current user.
     /// - Parameters:
     ///   - limit: A cap of objects to query. Defaults to 100, the maximum.
@@ -77,17 +77,17 @@ public class OwOSwift {
         if limit > maxObjectLimit {
             throw APIError.exceedsMaxLimit
         }
-        
+
         return try await getRequest(to: "/objects", params: ["limit": limit, "offset": offset]).handle(type: ObjectList.self)
     }
-    
+
     /// Retrieves information about the object with the given key.
     /// - Parameter key: Alsk known as the dir of the object + filename + extension, it starts with a leading forward slash.
     /// - Returns: Object data
     public func getObject(key: String) async throws -> Object {
         try await getRequest(to: "/objects" + key).handle(type: ObjectQuery.self).data
     }
-    
+
     /// Retrieves information about the object with the given filename.
     /// - Parameter filename: The filename, with an extension.
     /// - Returns: Object data

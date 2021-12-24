@@ -21,10 +21,12 @@ let defaultUserAgent = "WhatsThisClient (\(sourceUrl), \(version))"
 var apiDomain: String {
     UserDefaults.standard.string(forKey: "OwoKitAPIDomain") ?? "https://api.awau.moe"
 }
+
 /// The default domain used for uploaded files.
 var uploadDomain: String {
     UserDefaults.standard.string(forKey: "OwoKitUploadDomain") ?? "https://owo.whats-th.is"
 }
+
 /// The default domain used for shortened links.
 var shortenDomain: String {
     UserDefaults.standard.string(forKey: "OwoKitShortenDomain") ?? "https://awau.moe"

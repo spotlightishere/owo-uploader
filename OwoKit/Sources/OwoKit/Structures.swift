@@ -47,12 +47,10 @@ public struct UserInfo: Codable {
 
 /// A type representing possible object types.
 public enum ObjectType: Int, Codable {
-    
     case file = 0
     case link = 1
     case tombstone = 2
 }
-
 
 /// A type representing metadata for objects.
 public struct Object: Codable, Hashable {
@@ -83,7 +81,7 @@ public struct Object: Codable, Hashable {
     public var sha256: String
     /// Whether this object is associated to the authenticated user.
     public var associated: Bool
-    
+
     enum CodingKeys: String, CodingKey {
         case key, dir, type
         case bucketName = "bucket"
@@ -97,15 +95,15 @@ public struct Object: Codable, Hashable {
         case sha256 = "sha256_hash"
         case associated = "associated_with_current_user"
     }
-    
+
     /// A usable thumbnail URL for the given object.
     public var thumbnailURL: URL {
-        return URL(string: uploadDomain + key + "?thumbnail")!
+        URL(string: uploadDomain + key + "?thumbnail")!
     }
-    
+
     /// A usable filename.
     public var filename: String {
-        return String(key.dropFirst())
+        String(key.dropFirst())
     }
 }
 
@@ -118,7 +116,7 @@ struct ObjectQuery: Codable {
 public struct ObjectList: Codable {
     public var totalObjects: Int
     public var objects: [Object]
-    
+
     enum CodingKeys: String, CodingKey {
         case totalObjects = "total_objects"
         case objects = "data"
