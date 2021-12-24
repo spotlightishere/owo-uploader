@@ -16,20 +16,32 @@ let sourceUrl = "https://owo.codes/whats-this/OwoKit"
 /// An usable User-Agent value in the service's documented format.
 let defaultUserAgent = "WhatsThisClient (\(sourceUrl), \(version))"
 
+/// Holds all available defaults keys available while interacting with OwoKit.
+public enum OwoDefaultsKeys: String {
+    case apiDomain = "OwoKitAPIDomain"
+    case uploadDomain = "OwoKitUploadDomain"
+    case shortenDomain = "OwoKitShortenDomain"
+    
+    /// Returns the value represented by thiws key within user defaults.
+    public var value: String? {
+        UserDefaults.standard.string(forKey: self.rawValue)
+    }
+}
+
 /// The default domain to utilize the API with.
 /// Searchs user defaults for OwoKitAPIDomain, or utilizes the main API domain.
 var apiDomain: String {
-    UserDefaults.standard.string(forKey: "OwoKitAPIDomain") ?? "https://api.awau.moe"
+    OwoDefaultsKeys.apiDomain.value ?? "https://api.awau.moe"
 }
 
 /// The default domain used for uploaded files.
 var uploadDomain: String {
-    UserDefaults.standard.string(forKey: "OwoKitUploadDomain") ?? "https://owo.whats-th.is"
+    OwoDefaultsKeys.uploadDomain.value ?? "https://owo.whats-th.is"
 }
 
 /// The default domain used for shortened links.
 var shortenDomain: String {
-    UserDefaults.standard.string(forKey: "OwoKitShortenDomain") ?? "https://awau.moe"
+    OwoDefaultsKeys.shortenDomain.value ?? "https://awau.moe"
 }
 
 let maxObjectLimit = 100

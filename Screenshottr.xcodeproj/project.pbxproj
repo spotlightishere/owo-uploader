@@ -33,6 +33,10 @@
 		42C853FF24A6BCAA00DBD983 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C853D424A6BCA800DBD983 /* LoginView.swift */; };
 		42C8540024A6BCAA00DBD983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C853D524A6BCAA00DBD983 /* Assets.xcassets */; };
 		42C8540124A6BCAA00DBD983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42C853D524A6BCAA00DBD983 /* Assets.xcassets */; };
+		42CA002B277619F900887F79 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA002A277619F900887F79 /* DebugView.swift */; };
+		42CA002C277619F900887F79 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA002A277619F900887F79 /* DebugView.swift */; };
+		42CA002E27762A1200887F79 /* DebugDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA002D27762A1200887F79 /* DebugDefaults.swift */; };
+		42CA002F27762A1200887F79 /* DebugDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CA002D27762A1200887F79 /* DebugDefaults.swift */; };
 		42D7394624AA89160020420C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7394524AA89160020420C /* MainView.swift */; };
 		42D7394724AA89160020420C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7394524AA89160020420C /* MainView.swift */; };
 		42DC26582775349800EF16E4 /* FileThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC26572775349800EF16E4 /* FileThumbnail.swift */; };
@@ -86,6 +90,8 @@
 		42C853F524A6BCAA00DBD983 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C853F924A6BCAA00DBD983 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		42C853FB24A6BCAA00DBD983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42CA002A277619F900887F79 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		42CA002D27762A1200887F79 /* DebugDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugDefaults.swift; sourceTree = "<group>"; };
 		42D7394524AA89160020420C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		42DC26572775349800EF16E4 /* FileThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileThumbnail.swift; sourceTree = "<group>"; };
 		42E28BBB261FE5EB00A88EFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 				42C853D324A6BCA800DBD983 /* ScreenshottrApp.swift */,
 				42C853D424A6BCA800DBD983 /* LoginView.swift */,
 				42D7394524AA89160020420C /* MainView.swift */,
+				42CA002A277619F900887F79 /* DebugView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				42DC26572775349800EF16E4 /* FileThumbnail.swift */,
+				42CA002D27762A1200887F79 /* DebugDefaults.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -463,7 +471,9 @@
 				42C853FE24A6BCAA00DBD983 /* LoginView.swift in Sources */,
 				42C853FC24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
 				421DA026272259C00094C5DD /* LoginManager.swift in Sources */,
+				42CA002E27762A1200887F79 /* DebugDefaults.swift in Sources */,
 				421DA022272259C00094C5DD /* Constants.swift in Sources */,
+				42CA002B277619F900887F79 /* DebugView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,7 +490,9 @@
 				42F20DB92775814A00425C58 /* NativeImage.swift in Sources */,
 				421DA027272259C00094C5DD /* LoginManager.swift in Sources */,
 				42C853FD24A6BCAA00DBD983 /* ScreenshottrApp.swift in Sources */,
+				42CA002F27762A1200887F79 /* DebugDefaults.swift in Sources */,
 				421DA023272259C00094C5DD /* Constants.swift in Sources */,
+				42CA002C277619F900887F79 /* DebugView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

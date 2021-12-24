@@ -46,10 +46,12 @@ public class LoginManager: ObservableObject {
     }
 
     // A generic query to retrieve our token.
-    let retrievalQuery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                         kSecAttrLabel as String: keychainItemName,
-                                         kSecMatchLimit as String: kSecMatchLimitOne,
-                                         kSecReturnData as String: true]
+    let retrievalQuery = [
+        kSecClass: kSecClassGenericPassword,
+        kSecAttrLabel: keychainItemName,
+        kSecMatchLimit: kSecMatchLimitOne,
+        kSecReturnData: true,
+    ] as CFDictionary
 
     func retrieveTokenFromKeychain() throws -> String {
         var item: CFTypeRef?
@@ -83,16 +85,21 @@ public class LoginManager: ObservableObject {
         // Check if we can successfully request the current user's information.
         _ = try await testingApi.getUser()
 
-        // Add this new, valid token to the keychain.
-        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                    kSecAttrLabel as String: keychainItemName,
-                                    kSecValueData as String: token.data(using: String.Encoding.utf8)!]
+        // A generic query to add our token.
+        let itemAddQuery = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrLabel: keychainItemName,
+            kSecValueData: token.data,
+        ] as CFDictionary
 
-        var status = SecItemAdd(query as CFDictionary, nil)
+        // Add this new, valid token to the keychain.
+        var status = SecItemAdd(itemAddQuery, nil)
         if status == errSecDuplicateItem {
             // If needed, update the existing keychain item with our new token.
-            let updatedData: [String: Any] = [kSecValueData as String: token.data(using: String.Encoding.utf8)!]
-            status = SecItemUpdate(retrievalQuery as CFDictionary, updatedData as CFDictionary)
+            let updatedData = [
+                kSecValueData: token.data,
+            ] as CFDictionary
+            status = SecItemUpdate(retrievalQuery, updatedData)
         }
 
         // Determine whether adding or updating failed.
@@ -104,5 +111,12 @@ public class LoginManager: ObservableObject {
         DispatchQueue.main.sync {
             authenticated = true
         }
+    }
+}
+
+// Useful for working with our token.
+extension String {
+    var data: Data {
+        self.data(using: .utf8)!
     }
 }

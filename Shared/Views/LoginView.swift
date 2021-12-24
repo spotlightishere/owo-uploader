@@ -9,12 +9,18 @@ import Combine
 import SwiftUI
 
 struct LoginView: View {
+    // UI State
     @State private var keyboardHeight: CGFloat = 0
     @State private var enteredToken = ""
-
+    
+    // Login state
     @State private var isLoggingIn = false
     @State private var errorDescription = ""
     @EnvironmentObject var loginState: LoginManager
+    
+    // Debug-related variaables
+    @State private var debugTaps = 0
+    @State private var showDebug = false
 
     var body: some View {
         VStack {
@@ -24,6 +30,15 @@ struct LoginView: View {
                 .scaledToFit()
                 .cornerRadius(15.0)
                 .padding(.top, 23.0)
+                .onTapGesture {
+                    debugTaps += 1
+                    
+                    // On 5 taps of our logo, we want to open our debug menu.
+                    if debugTaps == 5 {
+                        debugTaps = 0
+                        showDebug = true
+                    }
+                }
 
             Text(verbatim: "OwO Beta")
                 .font(.custom(".AppleSystemUIFontDemi", size: 36.0))
@@ -71,7 +86,8 @@ struct LoginView: View {
 
             Text(errorDescription)
                 .foregroundColor(Color.red)
-        }.padding(.bottom, keyboardHeight)
+                .padding()
+        }.padding(.bottom, keyboardHeight / 2)
             // Modify upon keyboard height being sent
             .onReceive(Publishers.keyboardHeight) { self.keyboardHeight = $0 }
             .animation(.easeOut, value: 15.0)
@@ -91,6 +107,9 @@ struct LoginView: View {
                     }
                 }
                 isLoggingIn = false
+            }
+            .sheet(isPresented: $showDebug) {
+                DebugView()
             }
     }
 
