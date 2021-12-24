@@ -31,11 +31,11 @@ struct User: Codable {
 
 /// UserInfo describes information retrieved for the current user.
 public struct UserInfo: Codable {
-    var userId: String
-    var username: String
-    var email: String
-    var isAdmin: Bool
-    var isBlocked: Bool
+    public var userId: String
+    public var username: String
+    public var email: String
+    public var isAdmin: Bool
+    public var isBlocked: Bool
 
     enum CodingKeys: String, CodingKey {
         case username, email
@@ -100,7 +100,7 @@ public struct Object: Codable, Hashable {
     
     /// A usable thumbnail URL for the given object.
     public var thumbnailURL: URL {
-        return URL(string: defaultUploadDomain + key + "?thumbnail")!
+        return URL(string: uploadDomain + key + "?thumbnail")!
     }
     
     /// A usable filename.
@@ -110,8 +110,8 @@ public struct Object: Codable, Hashable {
 }
 
 /// Object represents information about a specific object.
-public struct ObjectQuery: Codable {
-    public var data: Object
+struct ObjectQuery: Codable {
+    var data: Object
 }
 
 /// ObjectList represents information about the resulting array of returned objects.

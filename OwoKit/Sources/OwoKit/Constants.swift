@@ -5,6 +5,8 @@
 //  Created by Spotlight Deveaux on 2021-12-23.
 //
 
+import Foundation
+
 /// The current version of this package.
 let version = "0.1.0"
 
@@ -15,10 +17,17 @@ let sourceUrl = "https://owo.codes/whats-this/OwoKit"
 let defaultUserAgent = "WhatsThisClient (\(sourceUrl), \(version))"
 
 /// The default domain to utilize the API with.
-let defaultAPIDomain = "https://api.awau.moe"
+/// Searchs user defaults for OwoKitAPIDomain, or utilizes the main API domain.
+var apiDomain: String {
+    UserDefaults.standard.string(forKey: "OwoKitAPIDomain") ?? "https://api.awau.moe"
+}
 /// The default domain used for uploaded files.
-let defaultUploadDomain = "https://owo.whats-th.is"
+var uploadDomain: String {
+    UserDefaults.standard.string(forKey: "OwoKitUploadDomain") ?? "https://owo.whats-th.is"
+}
 /// The default domain used for shortened links.
-let defaultShortenDomain = "https://awau.moe"
+var shortenDomain: String {
+    UserDefaults.standard.string(forKey: "OwoKitShortenDomain") ?? "https://awau.moe"
+}
 
 let maxObjectLimit = 100

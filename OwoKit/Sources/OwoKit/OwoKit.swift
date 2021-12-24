@@ -13,12 +13,6 @@ import Foundation
 public class OwOSwift {
     /// The token used to authenticate a user with.
     private var token: String
-    /// The domain to use as a base with all API routes.
-    public var apiDomain = defaultAPIDomain
-    /// The domain to append when uploading files.
-    public var fileDomain = defaultUploadDomain
-    /// The domain to append when shortening links.
-    public var shortenDomain = defaultShortenDomain
 
     /// Initializes a usable OwOSwift object with the given token.
     /// All default domains are used, and the default API domain is set.
