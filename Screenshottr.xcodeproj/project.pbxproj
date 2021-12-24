@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		420A645D2774F5C900B1C8AA /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 420A645C2774F5C900B1C8AA /* OwoKit */; };
 		420A645F2774F5CE00B1C8AA /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 420A645E2774F5CE00B1C8AA /* OwoKit */; };
 		420A6461277504CD00B1C8AA /* OSStatus+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A6460277504CD00B1C8AA /* OSStatus+Error.swift */; };
 		420A6462277504CD00B1C8AA /* OSStatus+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A6460277504CD00B1C8AA /* OSStatus+Error.swift */; };
@@ -39,6 +38,9 @@
 		42DC26582775349800EF16E4 /* FileThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC26572775349800EF16E4 /* FileThumbnail.swift */; };
 		42DC2659277534C300EF16E4 /* FileThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC26572775349800EF16E4 /* FileThumbnail.swift */; };
 		42E28BBC261FE5EB00A88EFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42E28BBA261FE5EB00A88EFB /* Localizable.strings */; };
+		42F20DB127756E2E00425C58 /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42F20DB027756E2E00425C58 /* OwoKit */; };
+		42F20DB327756EE000425C58 /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42F20DB227756EE000425C58 /* OwoKit */; };
+		42F20DB527756EE400425C58 /* OwoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42F20DB427756EE400425C58 /* OwoKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420A645D2774F5C900B1C8AA /* OwoKit in Frameworks */,
+				42F20DB127756E2E00425C58 /* OwoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F20DB327756EE000425C58 /* OwoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F20DB527756EE400425C58 /* OwoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +271,7 @@
 			);
 			name = iOS;
 			packageProductDependencies = (
-				420A645C2774F5C900B1C8AA /* OwoKit */,
+				42F20DB027756E2E00425C58 /* OwoKit */,
 			);
 			productName = iOS;
 			productReference = 42C853DA24A6BCAA00DBD983 /* Screenshottr.app */;
@@ -309,6 +313,7 @@
 			);
 			name = "Tests iOS";
 			packageProductDependencies = (
+				42F20DB227756EE000425C58 /* OwoKit */,
 			);
 			productName = "Tests iOS";
 			productReference = 42C853EA24A6BCAA00DBD983 /* Tests iOS.xctest */;
@@ -329,6 +334,7 @@
 			);
 			name = "Tests macOS";
 			packageProductDependencies = (
+				42F20DB427756EE400425C58 /* OwoKit */,
 			);
 			productName = "Tests macOS";
 			productReference = 42C853F524A6BCAA00DBD983 /* Tests macOS.xctest */;
@@ -877,11 +883,19 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		420A645C2774F5C900B1C8AA /* OwoKit */ = {
+		420A645E2774F5CE00B1C8AA /* OwoKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OwoKit;
 		};
-		420A645E2774F5CE00B1C8AA /* OwoKit */ = {
+		42F20DB027756E2E00425C58 /* OwoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OwoKit;
+		};
+		42F20DB227756EE000425C58 /* OwoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OwoKit;
+		};
+		42F20DB427756EE400425C58 /* OwoKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OwoKit;
 		};

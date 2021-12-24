@@ -54,8 +54,6 @@ public class LoginManager: ObservableObject {
                                          kSecReturnData as String: true]
 
     func retrieveTokenFromKeychain() throws -> String {
-        return "token"
-
         var item: CFTypeRef?
         let status = SecItemCopyMatching(retrievalQuery as CFDictionary, &item)
         guard status != errSecItemNotFound else {
