@@ -5,49 +5,55 @@
 //  Created by Spotlight Deveaux on 2021-12-24.
 //
 
-import SwiftUI
 import OwoKit
+import SwiftUI
 
 struct DebugView: View {
+    var body: some View {
+        #if os(macOS)
+            VStack(alignment: .center) {
+                Text("Debug Settings")
+                    .font(.title)
+                    .padding()
+                DebugFormView()
+            }.padding()
+                .frame(minWidth: 450.0, minHeight: 200.0)
+        #else
+            NavigationView {
+                DebugFormView()
+                    .navigationTitle("Debug Settings")
+            }
+        #endif
+    }
+}
+
+struct DebugFormView: View {
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        NavigationView {
-            Form {
-                Section(
-                    header: Text("Base Domains"),
-                    footer: Text("You can manually override utilized domains for testing.")
-                ) {
-                    DefaultsTextField(name: "API Domain", key: .apiDomain)
-                    DefaultsTextField(name: "Upload Domain", key: .uploadDomain)
-                    DefaultsTextField(name: "Shorten Domain", key: .shortenDomain)
-                }
-            }.navigationTitle("Debug Settings")
-            #if os(macOS)
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button(action: {
-                            dismiss()
-                        }) {
-                            Text("Done")
-                        }
-                    }
-                }
-            #else
-                .navigationBarItems(trailing: Button(action: {
-                    dismiss()
-                }) {
-                    Text("Done").bold()
-                })
-            #endif
+        Form {
+            Section(
+                header: Text("Base Domains"),
+                footer: Text("You can manually override utilized domains for testing.")
+            ) {
+                DefaultsTextField(key: .apiDomain, name: "API Domain")
+                DefaultsTextField(key: .uploadDomain, name: "Upload Domain")
+                DefaultsTextField(key: .shortenDomain, name: "Shorten Domain")
+            }
+
+            Button("Done", action: {
+                dismiss()
+            })
+        }.onExitCommand {
+            dismiss()
         }
     }
 }
 
-struct DebugView_Previews: PreviewProvider {
+struct DebugFormView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DebugView()
+            DebugFormView()
         }
     }
 }

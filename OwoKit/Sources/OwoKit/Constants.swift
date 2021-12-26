@@ -21,10 +21,10 @@ public enum OwoDefaultsKeys: String {
     case apiDomain = "OwoKitAPIDomain"
     case uploadDomain = "OwoKitUploadDomain"
     case shortenDomain = "OwoKitShortenDomain"
-    
+
     /// Returns the value represented by thiws key within user defaults.
     public var value: String? {
-        UserDefaults.standard.string(forKey: self.rawValue)
+        UserDefaults.standard.string(forKey: rawValue)
     }
 }
 

@@ -12,12 +12,12 @@ struct LoginView: View {
     // UI State
     @State private var keyboardHeight: CGFloat = 0
     @State private var enteredToken = ""
-    
+
     // Login state
     @State private var isLoggingIn = false
     @State private var errorDescription = ""
     @EnvironmentObject var loginState: LoginManager
-    
+
     // Debug-related variaables
     @State private var debugTaps = 0
     @State private var showDebug = false
@@ -32,7 +32,7 @@ struct LoginView: View {
                 .padding(.top, 23.0)
                 .onTapGesture {
                     debugTaps += 1
-                    
+
                     // On 5 taps of our logo, we want to open our debug menu.
                     if debugTaps == 5 {
                         debugTaps = 0
