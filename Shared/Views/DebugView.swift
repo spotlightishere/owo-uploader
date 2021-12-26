@@ -44,9 +44,12 @@ struct DebugFormView: View {
             Button("Done", action: {
                 dismiss()
             })
-        }.onExitCommand {
+        }
+        #if os(macOS)
+        .onExitCommand {
             dismiss()
         }
+        #endif
     }
 }
 
