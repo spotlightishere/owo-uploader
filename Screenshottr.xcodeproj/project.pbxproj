@@ -453,7 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsysctl -a\nioreg -lw0\nmount\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nmkfile -n 100m /Volumes/workspace/test\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
