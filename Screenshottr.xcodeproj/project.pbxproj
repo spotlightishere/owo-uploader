@@ -298,7 +298,6 @@
 				42C853DE24A6BCAA00DBD983 /* Sources */,
 				42C853DF24A6BCAA00DBD983 /* Frameworks */,
 				42C853E024A6BCAA00DBD983 /* Resources */,
-				422876552723708000FE6206 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -436,26 +435,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		422876552723708000FE6206 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nmkfile -n 100m /Volumes/workspace/test\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		42C853D624A6BCAA00DBD983 /* Sources */ = {
